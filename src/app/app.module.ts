@@ -5,18 +5,25 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {BottomNavModule} from 'ngx-bottom-nav';
 import {MatIconModule} from '@angular/material/icon';
-import { FirstComponent } from './core/first/first.component';
-import { SecondComponent } from './core/second/second.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import {MatSliderModule} from '@angular/material/slider'; // CLI imports AppRoutingModule
+import {MatSliderModule} from '@angular/material/slider';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotesComponent } from './core/notes/notes.component';
+import { PlanerComponent } from './core/planer/planer.component';
+import { HomeComponent } from './core/home/home.component';
+import { AtlasComponent } from './core/atlas/atlas.component';
+import {UserComponent} from './core/user/user.component'; // CLI imports AppRoutingModule
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponent,
-    SecondComponent
+    UserComponent,
+    NotesComponent,
+    PlanerComponent,
+    HomeComponent,
+    AtlasComponent
   ],
   imports: [
     AppRoutingModule,
@@ -25,6 +32,7 @@ import {MatSliderModule} from '@angular/material/slider'; // CLI imports AppRout
     BottomNavModule,
     MatIconModule,
     MatSliderModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

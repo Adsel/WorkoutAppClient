@@ -2,9 +2,21 @@
 @import '~@angular/material/theming';
 @import '~ngx-bottom-nav/theming';
 
-@include mat-core();
+$WorkoutAppClient-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
 
-$WorkoutAppClient-primary: mat-palette($mat-purple);
+@include mat-base-typography($WorkoutAppClient-typography);
+
+@include mat-checkbox-typography($WorkoutAppClient-typography);
+
+@include angular-material-typography($WorkoutAppClient-typography);
+
+@include mat-core($WorkoutAppClient-typography);
+
+$WorkoutAppClient-primary: mat-palette($mat-purple, A200, A100, A400);
 $WorkoutAppClient-accent: mat-palette($mat-light-blue, A200, A100, A400);
 
 $WorkoutAppClient-warn: mat-palette($mat-red);
@@ -16,6 +28,8 @@ $WorkoutAppClient-theme: mat-dark-theme((
     warn: $WorkoutAppClient-warn,
   )
 ));
+
+// `headlines` and `body-1` levels.
 
 @include angular-material-theme($WorkoutAppClient-theme);
 @include ngx-bottom-nav-theme($WorkoutAppClient-theme);
