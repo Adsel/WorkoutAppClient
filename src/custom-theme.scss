@@ -18,14 +18,32 @@ $WorkoutAppClient-typography: mat-typography-config(
 
 $WorkoutAppClient-primary: mat-palette($mat-purple, A200, A100, A400);
 $WorkoutAppClient-accent: mat-palette($mat-light-blue, A200, A100, A400);
-
 $WorkoutAppClient-warn: mat-palette($mat-red);
+
+$WorkoutAppClient-background: (
+  status-bar: 303030,
+  app-bar:    map-get($mat-grey, 900),
+  background: black,
+  hover:      rgba(white, 0.04),
+  card:       map-get($mat-grey, 800),
+  dialog:     map-get($mat-grey, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map-get($mat-grey, 900),
+  selected-disabled-button: map-get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map-get($mat-grey, 700),
+  disabled-list-option: black,
+  tooltip: map-get($mat-grey, 700),
+);
 
 $WorkoutAppClient-theme: mat-dark-theme((
   color: (
     primary: $WorkoutAppClient-primary,
     accent: $WorkoutAppClient-accent,
     warn: $WorkoutAppClient-warn,
+    background: $WorkoutAppClient-background
   )
 ));
 
