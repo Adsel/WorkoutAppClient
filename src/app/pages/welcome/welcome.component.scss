@@ -6,9 +6,14 @@
 }
 
 .img {
+  min-height: 350px;
+
+  @media (max-width: 1024px){
+    min-height: 250px;
+
+  }
   border-bottom: 3px #953FFF solid !important;
   width: 100%;
-  min-height: 350px;
   background-image: url('/assets/img1.jpg');
   background-position: 0% 50%;
   background-repeat: no-repeat;
@@ -24,7 +29,7 @@ strong{
   width: 100%;
   border: 2px #953FFF solid !important;
   border-radius: 100px;
-  padding: 5px 30px;
+  padding: 5px 15px;
   color: #953FFF;
   mat-icon{
     font-size: 1.5em;
@@ -37,3 +42,4 @@ strong{
   --bs-gutter-x: 0 !important;
   --bs-gutter-y: 0 !important;
 }
+
