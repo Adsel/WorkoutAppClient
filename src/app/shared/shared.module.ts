@@ -47,6 +47,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -54,7 +55,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     CommonModule,
     SharedRoutingModule,
     MatIconModule,
-    BottomNavModule
+    BottomNavModule,
+    FontAwesomeModule
   ],
   exports: [
     A11yModule,

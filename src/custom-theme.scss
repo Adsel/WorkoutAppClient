@@ -148,7 +148,17 @@ mat-toolbar{
   justify-content: space-around !important;
   background: #{mat-color(mat-palette($md-black,400))} !important;
   color: #{mat-color(mat-palette($md-purple,500))} !important;
+  padding: 10px !important;
 }
 button[ngx-bottom-nav]:not(.active) {
   --ngx-bottom-nav-button-color: #{mat-color(mat-palette($md-black, 100))};
+  font-size: 1em;
+  padding: 0 !important;
+  min-width: 60px !important;
+  height: 100%!important ;
+
+}
+mat-icon{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
