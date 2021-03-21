@@ -16,6 +16,8 @@ import {SharedModule} from './shared/shared.module';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import {MatSliderModule} from '@angular/material/slider';
     PlanerComponent,
     HomeComponent,
     AtlasComponent,
+    PageNotFoundComponent,
+    WelcomeComponent,
   ],
   imports: [
     AppRoutingModule,

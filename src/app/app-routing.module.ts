@@ -5,6 +5,8 @@ import {HomeComponent} from './pages/home/home.component';
 import {UserComponent} from './pages/user/user.component';
 import {NotesComponent} from './pages/notes/notes.component';
 import {PlanerComponent} from './pages/planer/planer.component';
+import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
+import {WelcomeComponent} from './pages/welcome/welcome.component';
 
 
 const routes: Routes = [
@@ -13,8 +15,9 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'planer', component: PlanerComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 // configures NgModule imports and exports
