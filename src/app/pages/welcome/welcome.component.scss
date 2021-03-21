@@ -32,3 +32,8 @@ strong{
     margin: 6px 0px;
   }
 }
+
+.row{
+  --bs-gutter-x: 0 !important;
+  --bs-gutter-y: 0 !important;
+}
