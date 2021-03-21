@@ -1,53 +1,154 @@
 
 @import '~@angular/material/theming';
 @import '~ngx-bottom-nav/theming';
+@import '~material-bottom-nav';
 
-$WorkoutAppClient-typography: mat-typography-config(
+
+
+$typography: mat-typography-config(
   $font-family: 'Roboto, monospace',
   $headline: mat-typography-level(32px, 48px, 700),
   $body-1: mat-typography-level(16px, 24px, 500)
 );
 
-@include mat-base-typography($WorkoutAppClient-typography);
+@include mat-core($typography);
+@include mat-base-typography($typography);
+@include mat-checkbox-typography($typography);
+@include angular-material-typography($typography);
 
-@include mat-checkbox-typography($WorkoutAppClient-typography);
 
-@include angular-material-typography($WorkoutAppClient-typography);
-
-@include mat-core($WorkoutAppClient-typography);
-
-$WorkoutAppClient-primary: mat-palette($mat-purple, A200, A100, A400);
-$WorkoutAppClient-accent: mat-palette($mat-light-blue, A200, A100, A400);
-$WorkoutAppClient-warn: mat-palette($mat-red);
-
-$WorkoutAppClient-background: (
-  status-bar: 303030,
-  app-bar:    map-get($mat-grey, 900),
-  background: black,
-  hover:      rgba(white, 0.04),
-  card:       map-get($mat-grey, 800),
-  dialog:     map-get($mat-grey, 800),
-  disabled-button: rgba(white, 0.12),
-  raised-button: map-get($mat-grey, 800),
-  focused-button: $light-focused,
-  selected-button: map-get($mat-grey, 900),
-  selected-disabled-button: map-get($mat-grey, 800),
-  disabled-button-toggle: black,
-  unselected-chip: map-get($mat-grey, 700),
-  disabled-list-option: black,
-  tooltip: map-get($mat-grey, 700),
+$md-black: (
+  50 : #e1e1e1,
+  100 : #ACACAC,
+  200 : #848484,
+  300 : #535353,
+  400 : #2b2b2c,
+  500 : #090909,
+  600 : #080808,
+  700 : #060606,
+  800 : #050505,
+  900 : #020202,
+  A100 : #a6a6a6,
+  A200 : #8c8c8c,
+  A400 : #737373,
+  A700 : #666666,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
 );
 
-$WorkoutAppClient-theme: mat-dark-theme((
-  color: (
-    primary: $WorkoutAppClient-primary,
-    accent: $WorkoutAppClient-accent,
-    warn: $WorkoutAppClient-warn,
-    background: $WorkoutAppClient-background
+$md-purple: (
+  50 : #f2e8ff,
+  100 : #dfc5ff,
+  200 : #ca9fff,
+  300 : #b579ff,
+  400 : #a55cff,
+  500 : #953fff,
+  600 : #8d39ff,
+  700 : #8231ff,
+  800 : #7829ff,
+  900 : #671bff,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #dbccff,
+  A700 : #c9b3ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
   )
-));
+);
 
-// `headlines` and `body-1` levels.
+$md-blue: (
+  50 : #e5f3ff,
+  100 : #bee0fe,
+  200 : #93ccfd,
+  300 : #67b8fc,
+  400 : #47a8fc,
+  500 : #2699fb,
+  600 : #2291fa,
+  700 : #1c86fa,
+  800 : #177cf9,
+  900 : #0d6bf8,
+  A100 : #ffffff,
+  A200 : #f0f5ff,
+  A400 : #bdd4ff,
+  A700 : #a3c4ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
 
-@include angular-material-theme($WorkoutAppClient-theme);
-@include ngx-bottom-nav-theme($WorkoutAppClient-theme);
+$primary: mat-palette($md-purple, 500);
+$accent: mat-palette($md-blue, 500);
+$background-color: map_get($md-black, 900);
+$foreground: map_get($md-black, 400);
+$warn: mat-palette($mat-red);
+
+$theme: mat-dark-theme($primary, $accent, $warn);
+
+$background: map-get($theme, background);
+$background: map_merge($background, (background: $background-color));
+
+$foreground: map-get($theme, foreground);
+$foreground: map_merge($foreground, (foreground: $foreground));
+
+$theme: map_merge($theme, (background: $background));
+$theme: map_merge($theme, (foreground: $foreground));
+
+
+@include angular-material-theme($theme);
+@include ngx-bottom-nav-theme($theme);
+
+ngx-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  justify-content: space-around;
+  z-index:999;
+}
+mat-toolbar{
+  justify-content: space-around !important;
+  background: #{mat-color(mat-palette($md-black,400))} !important;
+  color: #{mat-color(mat-palette($md-purple,500))} !important;
+}
+button[ngx-bottom-nav]:not(.active) {
+  --ngx-bottom-nav-button-color: #{mat-color(mat-palette($md-black, 100))};
+}
