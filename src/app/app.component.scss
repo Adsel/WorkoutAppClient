@@ -1,0 +1,16 @@
+@import "../assets/scss/breakpoints";
+
+/* SHARED STYLES FOR LAYOUT */
+
+// EXAMPLE
+body {
+  // background-color: pink !important;;
+
+  @media (min-width: $breakpoint-tablet) {
+    // background-color: saddlebrown !important;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    // background-color: yellowgreen !important;
+  }
+}
