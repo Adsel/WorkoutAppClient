@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     MatSliderModule,
     FontAwesomeModule,
     SharedModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
