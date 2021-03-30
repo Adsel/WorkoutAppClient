@@ -1,15 +1,16 @@
 <app-alphabet-header
-  [viewName]="viewName">
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [level]="0">
 </app-alphabet-header>
 
 <div class="container p-0">
-  <div class="row  justify-content-center ">
+  <div class="row justify-content-center ">
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-5">
-      <h1 class="text-center mt-4">
-        Exercise
-        Alphabet
-      </h1>
+      <div class="text-center mt-4">
+        <span class="caption-primary">Choose your category</span>
+      </div>
     </div>
   </div>
 </div>
+
+<app-navbar></app-navbar>
 

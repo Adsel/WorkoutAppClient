@@ -1,3 +1,6 @@
-<div class="header" >
-  <h1>{{viewName}}</h1>
+<div class="header" [class]="currentLevelClass">
+  <div class="header-desc">
+    <h1>{{viewNameBold | uppercase}}</h1>
+    <h2>{{viewNameRegular}}</h2>
+  </div>
 </div>

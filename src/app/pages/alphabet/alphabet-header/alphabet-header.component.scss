@@ -1,14 +1,34 @@
-.header {
-  min-height: 230px;
-  @media (max-width: 1024px) {
-    min-height: 350px;
+@import "src/assets/scss/shared";
 
+.header {
+  height: 230px;
+  @media (max-width: 1024px) {
+    height: 350px;
   }
 
-  border-bottom: 3px #953FFF solid !important;
+  border-bottom: 3px $color-primary solid !important;
   width: 100%;
-  background-image: url('/assets/img1.jpg');
   background-position: 0% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+
+  & > .header-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-left: 10%;
+  }
+}
+
+.header-image-first {
+  background-image: url('/assets/image/alphabet/header-first.jpg');
+}
+
+.header-image-second {
+  background-image: url('/assets/image/alphabet/header-second.jpg');
+}
+
+.header-image-third {
+  background-image: url('/assets/image/alphabet/header-third.jpg');
 }

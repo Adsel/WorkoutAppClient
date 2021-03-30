@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlphabetCategoriesComponent } from './alphabet-categories/alphabet-categories.component';
 import { RouterModule } from '@angular/router';
-import {PageNotFoundComponent} from '../page-not-found/page-not-found.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatStepperModule} from "@angular/material/stepper";
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { AlphabetHeaderComponent } from './alphabet-header/alphabet-header.component';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes = [
   { path: 'exercises/categories', component: AlphabetCategoriesComponent },
@@ -21,9 +19,7 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatSliderModule,
-    MatIconModule,
-    MatStepperModule
+    SharedModule
   ],
   exports: [
     AlphabetCategoriesComponent
