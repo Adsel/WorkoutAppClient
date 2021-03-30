@@ -1,0 +1,15 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.img {
+  min-height: 230px;
+  @media (max-width: 1024px) {
+    min-height: 350px;
+
+  }
+  border-bottom: 3px #953FFF solid !important;
+  width: 100%;
+  background-image: url('/assets/img1.jpg');
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
