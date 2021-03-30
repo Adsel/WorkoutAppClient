@@ -16,8 +16,7 @@ const routes: Routes = [
   { path: 'notes', component: NotesComponent },
   { path: 'planer', component: PlanerComponent },
   { path: 'welcome', component: WelcomeComponent },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ];
 
 // configures NgModule imports and exports
