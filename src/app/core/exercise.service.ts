@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CONFIG, Config, ExerciseCategory } from '../model';
+import {CONFIG, Config, ExerciseCategoryDTO} from '../model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class ExerciseService {
     @Inject(CONFIG) private config: Config
   ) { }
 
-  getExerciseCategories(): Observable<ExerciseCategory[]> {
-    return this.httpClient.get<ExerciseCategory[]>(`${this.config.apiUrl}/exercise-categories`);
+  getExerciseCategories(): Observable<ExerciseCategoryDTO> {
+    return this.httpClient.get<ExerciseCategoryDTO>(`${this.config.apiUrl}/exercise-alphabet/categories`);
   }
 }

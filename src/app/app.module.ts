@@ -25,7 +25,7 @@ import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 
 const config: Config = {
-  apiUrl: 'http://localhost:8080'
+  apiUrl: 'http://localhost:8080/api'
 };
 
 @NgModule({

@@ -6,6 +6,12 @@ export interface Config {
 
 export interface ExerciseCategory {
   name: string;
+  id: number;
+  image: string;
+}
+
+export interface ExerciseCategoryDTO {
+  categories: ExerciseCategory[];
 }
 
 export const CONFIG = new InjectionToken<Config>('app.config');

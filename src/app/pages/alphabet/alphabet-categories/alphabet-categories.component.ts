@@ -16,7 +16,7 @@ export class AlphabetCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.exerciseService.getExerciseCategories().subscribe(response => {
-      this.categories = response;
+      this.categories = response.categories;
     });
   }
 }
