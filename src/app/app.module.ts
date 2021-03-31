@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './pages/notes/notes.component';
 import { PlanerComponent } from './pages/planer/planer.component';
-import { HomeComponent } from './pages/home/home.component';
 import { AtlasComponent } from './pages/atlas/atlas.component';
 import {UserComponent} from './pages/user/user.component';
 import {SharedModule} from './shared/shared.module';
@@ -17,8 +16,8 @@ import {SharedModule} from './shared/shared.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HomeModule} from './home/home.module';
 
 
 @NgModule({
@@ -27,10 +26,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     UserComponent,
     NotesComponent,
     PlanerComponent,
-    HomeComponent,
     AtlasComponent,
-    PageNotFoundComponent,
-    WelcomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,6 +39,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     FontAwesomeModule,
     SharedModule,
     ReactiveFormsModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
