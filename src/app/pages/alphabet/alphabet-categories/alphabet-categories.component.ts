@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ExerciseCategory } from '../../../model';
+import { ExerciseService } from '../../../core/exercise.service';
 
 @Component({
   selector: 'app-alphabet-categories',
@@ -8,8 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class AlphabetCategoriesComponent implements OnInit {
   viewNameBold = 'Exercise';
   viewNameRegular = 'Alphabet';
+  categories: ExerciseCategory[];
 
-  constructor() {}
+  constructor(private exerciseService: ExerciseService) {}
 
-  ngOnInit = () => {};
+  ngOnInit(): void {
+    this.exerciseService.getExerciseCategories().subscribe(response => {
+      this.categories = response;
+    });
+  }
 }
