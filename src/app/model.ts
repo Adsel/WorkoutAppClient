@@ -2,6 +2,7 @@ import {InjectionToken} from '@angular/core';
 
 export interface Config {
   apiUrl: string;
+  alphabetPlaceholderPath: string;
 }
 
 export interface ExerciseCategory {

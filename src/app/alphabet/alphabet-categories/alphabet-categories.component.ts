@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ExerciseCategory } from '../../model';
+import {Component, Inject, OnInit} from '@angular/core';
+import {Config, CONFIG, ExerciseCategory} from '../../model';
 import { ExerciseService } from '../../core/exercise.service';
 
 @Component({
@@ -12,7 +12,10 @@ export class AlphabetCategoriesComponent implements OnInit {
   viewNameRegular = 'Alphabet';
   categories: ExerciseCategory[];
 
-  constructor(private exerciseService: ExerciseService) {}
+  constructor(
+    private exerciseService: ExerciseService,
+    @Inject(CONFIG) private config: Config
+  ) {}
 
   ngOnInit(): void {
     this.exerciseService.getExerciseCategories().subscribe(response => {
