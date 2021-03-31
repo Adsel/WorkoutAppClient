@@ -11,19 +11,19 @@ import { NotesComponent } from './pages/notes/notes.component';
 import { PlanerComponent } from './pages/planer/planer.component';
 import { AtlasComponent } from './pages/atlas/atlas.component';
 import { UserComponent } from './pages/user/user.component';
+
+import { AlphabetModule } from './alphabet/alphabet.module';
+import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AlphabetModule } from './alphabet/alphabet.module';
+
 import { HttpClientModule } from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HomeModule} from './home/home.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
