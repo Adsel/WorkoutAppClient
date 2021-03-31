@@ -15,7 +15,7 @@
     background-color: $color-primary;
     border-radius: $spacing-10;
     margin-bottom: $spacing-5;
-    background-size: contain;
+    background-size: cover;
 
     & > a {
       display: flex;
