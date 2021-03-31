@@ -1,18 +1,27 @@
 @import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../../../assets/scss/shared";
 
-.caption-primary {
-  display: block;
-  color: $color-primary;
-  margin-bottom: $spacing-3;
-}
+.category-wrapper {
+  font-family: 'Roboto';
 
-.category {
-  min-height: 126px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0d6bf8;
-  border-radius: $spacing-10;
-  margin-bottom: $spacing-5;
+  .caption-primary {
+    display: block;
+    color: $color-primary;
+    margin: $spacing-7 0;
+  }
+
+  .category {
+    min-height: 126px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-primary;
+    border-radius: $spacing-10;
+    margin-bottom: $spacing-5;
+
+    & > h2 {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
 }

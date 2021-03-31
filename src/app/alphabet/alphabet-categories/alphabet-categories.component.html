@@ -5,13 +5,13 @@
 <div class="container p-0">
   <div class="row justify-content-center ">
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-5">
-      <div class="text-center mt-4">
+      <div class="text-center category-wrapper">
         <span class="caption-primary">Choose your category</span>
         <div *ngFor="let category of this.categories"
              [ngStyle]="{'background-image': 'url(' + category.image != null ? category.image: '' + ')'}"
              class="category"
         >
-          <h2>{{category.name}}</h2>
+          <h2>{{category.name | uppercase}}</h2>
         </div>
       </div>
     </div>
