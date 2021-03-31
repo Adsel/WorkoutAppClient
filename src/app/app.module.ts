@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './pages/notes/notes.component';
 import { PlanerComponent } from './pages/planer/planer.component';
-import { HomeComponent } from './pages/home/home.component';
 import { AtlasComponent } from './pages/atlas/atlas.component';
 import { UserComponent } from './pages/user/user.component';
 import { SharedModule } from './shared/shared.module';
@@ -23,6 +22,8 @@ import { AlphabetModule } from './alphabet/alphabet.module';
 import { HttpClientModule } from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HomeModule} from './home/home.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -35,10 +36,8 @@ const config: Config = {
     UserComponent,
     NotesComponent,
     PlanerComponent,
-    HomeComponent,
     AtlasComponent,
-    PageNotFoundComponent,
-    WelcomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     AppRoutingModule,
@@ -50,6 +49,7 @@ const config: Config = {
     FontAwesomeModule,
     SharedModule,
     ReactiveFormsModule,
+    HomeModule,
     AlphabetModule,
     HttpClientModule
   ],
