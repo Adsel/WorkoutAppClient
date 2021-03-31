@@ -11,17 +11,24 @@
   }
 
   .category {
-    min-height: 126px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 126px;
     background-color: $color-primary;
     border-radius: $spacing-10;
     margin-bottom: $spacing-5;
 
-    & > h2 {
-      margin: 0;
-      font-weight: bold;
+    & > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: $color-white;
+      width: 100%;
+      height: 100%;
+
+       & > h2 {
+        margin: 0;
+        font-weight: bold;
+      }
     }
   }
 }

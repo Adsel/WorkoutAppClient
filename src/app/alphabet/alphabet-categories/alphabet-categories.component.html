@@ -11,7 +11,9 @@
              [ngStyle]="{'background-image': 'url(' + category.image != null ? category.image: '' + ')'}"
              class="category"
         >
-          <h2>{{category.name | uppercase}}</h2>
+          <a routerLink="/exercises/category/{{category.id}}">
+            <h2>{{category.name | uppercase}}</h2>
+          </a>
         </div>
       </div>
     </div>
