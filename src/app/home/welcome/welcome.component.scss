@@ -1,0 +1,67 @@
+@import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+.card {
+  max-width: 600px;
+  display: block;
+}
+
+.img {
+  min-height: 230px;
+  @media (max-width: 1024px){
+    min-height: 350px;
+
+  }
+  border-bottom: 3px #953FFF solid !important;
+  width: 100%;
+  background-image: url('/assets/img1.jpg');
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.thin{
+  font-weight: 200;
+}
+strong{
+  font-weight: 600;
+}
+.neon-button{
+  width: 100%;
+  border: 2px #953FFF solid !important;
+  border-radius: 100px;
+  padding: 5px 15px;
+  color: #953FFF;
+  mat-icon{
+    font-size: 1.5em;
+    float: left;
+    margin: 6px 0px;
+  }
+}
+
+.row{
+  --bs-gutter-x: 0 !important;
+  --bs-gutter-y: 0 !important;
+}
+
+.mat-stepper-horizontal{
+  background-color: transparent ;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.mat-stepper-label-position-top .mat-horizontal-stepper-header{
+  flex-direction: column-reverse !important;
+}
+
+.mat-stepper-label-position-top .mat-horizontal-stepper-header .mat-step-label{
+  height: 48px;
+}
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before,
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after{
+  bottom: 36px !important;
+  top:unset !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}
