@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlphabetCategoriesComponent } from './alphabet-categories/alphabet-categories.component';
 import { RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '../pages/page-not-found/page-not-found.component';
 import { AlphabetHeaderComponent } from './alphabet-header/alphabet-header.component';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 const routes = [
   { path: 'exercises/categories', component: AlphabetCategoriesComponent },

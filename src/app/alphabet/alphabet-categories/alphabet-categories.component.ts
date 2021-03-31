@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciseCategory } from '../../../model';
-import { ExerciseService } from '../../../core/exercise.service';
+import { ExerciseCategory } from '../../model';
+import { ExerciseService } from '../../core/exercise.service';
 
 @Component({
   selector: 'app-alphabet-categories',

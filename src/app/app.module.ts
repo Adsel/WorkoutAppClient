@@ -19,7 +19,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AlphabetModule } from './pages/alphabet/alphabet.module';
+import { AlphabetModule } from './alphabet/alphabet.module';
 import { HttpClientModule } from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';

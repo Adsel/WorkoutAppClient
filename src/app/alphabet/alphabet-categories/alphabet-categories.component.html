@@ -8,7 +8,7 @@
       <div class="text-center mt-4">
         <span class="caption-primary">Choose your category</span>
         <div *ngFor="let category of this.categories"
-             [ngStyle]="{'background-image': 'url(' + category.image + ')'}"
+             [ngStyle]="{'background-image': 'url(' + category.image != null ? category.image: '' + ')'}"
              class="category"
         >
           <h2>{{category.name}}</h2>
