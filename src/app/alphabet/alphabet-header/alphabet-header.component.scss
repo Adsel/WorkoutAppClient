@@ -1,0 +1,43 @@
+@import "../../../assets/scss/shared";
+
+.header {
+  font-family: Roboto;
+  height: 230px;
+  @media (max-width: 1024px) {
+    height: 350px;
+  }
+
+  border-bottom: 3px $color-primary solid !important;
+  width: 100%;
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  & > .header-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-left: 10%;
+
+    & > h1 {
+      font-weight: bold;
+    }
+
+    & > h2 {
+      font-weight: 400;
+    }
+  }
+}
+
+.header-image-first {
+  background-image: url('/assets/image/alphabet/header-first.jpg');
+}
+
+.header-image-second {
+  background-image: url('/assets/image/alphabet/header-second.jpg');
+}
+
+.header-image-third {
+  background-image: url('/assets/image/alphabet/header-third.jpg');
+}

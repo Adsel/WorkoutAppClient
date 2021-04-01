@@ -3,22 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {BottomNavModule} from 'ngx-bottom-nav';
+import { BottomNavModule } from 'ngx-bottom-nav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './pages/notes/notes.component';
 import { PlanerComponent } from './pages/planer/planer.component';
 import { AtlasComponent } from './pages/atlas/atlas.component';
-import {UserComponent} from './pages/user/user.component';
-import {SharedModule} from './shared/shared.module';
+import { UserComponent } from './pages/user/user.component';
 
-import {MatIconModule} from '@angular/material/icon';
-import {MatSliderModule} from '@angular/material/slider';
+import { AlphabetModule } from './alphabet/alphabet.module';
+import { HomeModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {HomeModule} from './home/home.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import {CONFIG, Config} from './model';
+import { ExerciseService } from './core/exercise.service';
+import {ReactiveFormsModule} from '@angular/forms';
+
+const config: Config = {
+  apiUrl: 'http://localhost:8080/api',
+  alphabetPlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
+};
 
 @NgModule({
   declarations: [
@@ -39,9 +49,14 @@ import {HomeModule} from './home/home.module';
     FontAwesomeModule,
     SharedModule,
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
+    AlphabetModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ExerciseService,
+    { provide: CONFIG, useValue: config }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

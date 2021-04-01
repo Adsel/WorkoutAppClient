@@ -7,12 +7,11 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import {MatDividerModule} from '@angular/material/divider';
-import {SharedModule} from "../shared/shared.module";
+import {SharedModule} from '../shared/shared.module';
 
 const routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'welcome', component: WelcomeComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'welcome', component: WelcomeComponent }
 ];
 
 @NgModule({
