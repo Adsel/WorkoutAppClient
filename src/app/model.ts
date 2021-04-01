@@ -15,4 +15,19 @@ export interface ExerciseCategoryDTO {
   categories: ExerciseCategory[];
 }
 
+export interface Exercise {
+  id: number;
+  name: string;
+  description: string;
+  videoUrl: string;
+}
+
+export interface ExercisesDTO {
+  exercises: Exercise[];
+  resultMessage: string;
+  categoryStatus: string;
+  categoryName: string;
+  categoryId: number;
+}
+
 export const CONFIG = new InjectionToken<Config>('app.config');
