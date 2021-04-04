@@ -1,0 +1,78 @@
+<div class="header-app mb-5"></div>
+
+<div class="container p-0 mt-5">
+  <div class="row  justify-content-center ">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3 mb-5">
+
+      <form class="user-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" class="my-form-field input-full-width">
+          <mat-label>Email</mat-label>
+          <label>
+            <input type="Email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                   placeholder="yourEmail@example.com">
+          </label>
+          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>empty</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="my-form-field input-full-width">
+          <mat-label>Password</mat-label>
+          <label>
+            <input type="Password" matInput formControlName="password" (input)="onPasswordInput()" [errorStateMatcher]="matcher"
+                   [type]="showPassword ? 'password' : 'text'"
+                   placeholder="password">
+          </label>
+
+          <mat-icon matSuffix (click)="showPassword = !showPassword">
+            {{showPassword ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+
+          <mat-error *ngIf="password.hasError('pattern') && !password.hasError('required')">
+            Password must be numbers and / or letters
+          </mat-error>
+          <mat-error *ngIf="password.hasError('minlength')">
+            Password must have at least {{minPasswordLength}} characters
+          </mat-error>
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>empty</strong>
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="my-form-field input-full-width">
+          <mat-label>Confirm password</mat-label>
+          <label>
+            <input type="Password" matInput formControlName="confirmPassword" (input)="onPasswordInput()" [errorStateMatcher]="matcher"
+                   [type]="showConfirmPassword ? 'password' : 'text'"
+                   placeholder="confirm password">
+          </label>
+
+          <mat-icon matSuffix (click)="showConfirmPassword = !showConfirmPassword">
+            {{showConfirmPassword ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+
+          <mat-error *ngIf="confirmPassword.invalid && !confirmPassword.hasError('required')">
+            Passwords don't match
+          </mat-error>
+          <mat-error *ngIf="confirmPassword.hasError('required')">
+            Please confirm your password
+          </mat-error>
+
+        </mat-form-field>
+
+        <button mat-button class="neon-button neon-button-blue" color="primary" (input)="onSubmit()">
+          <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-user-plus"></mat-icon>
+          REGISTER
+        </button>
+
+
+      </form>
+    </div>
+  </div>
+</div>
