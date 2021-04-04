@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -11,6 +11,9 @@ import {
   ValidationErrors
 } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import {RegisterService} from '../../core/register.service';
+import {Config, CONFIG, UserRegisterDTO} from '../../model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +21,31 @@ import {ErrorStateMatcher} from '@angular/material/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private registerService: RegisterService,
+    @Inject(CONFIG) private config: Config
+  ) {
+  }
+
+  get email(): any {
+    return this.registerForm.get('email');
+  }
+
+  get password(): any {
+    return this.registerForm.get('password');
+  }
+
+  get confirmPassword(): any {
+    return this.registerForm.get('confirmPassword');
+  }
+
+  get f(): any {
+    return this.registerForm.controls;
+  }
   registerForm: FormGroup;
-  submitted = false;
 
   matcher = new MyErrorStateMatcher();
 
@@ -27,8 +53,6 @@ export class RegisterComponent implements OnInit {
   showConfirmPassword = true;
 
   minPasswordLength = 8;
-
-  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -52,35 +76,31 @@ export class RegisterComponent implements OnInit {
         Validators.required
       ]
     }, {
-      validator: passwordMatchValidator
+      validator: matchValidator,
     });
   }
-
-  get email(): any { return this.registerForm.get('email'); }
-  get password(): any { return this.registerForm.get('password'); }
-  get confirmPassword(): any { return this.registerForm.get('confirmPassword'); }
-  get f(): any { return this.registerForm.controls; }
 
   onPasswordInput(): any {
     if (this.registerForm.hasError('passwordMismatch')) {
       this.confirmPassword.setErrors([{passwordMismatch: true}]);
-    }
-    else {
+    } else {
       this.confirmPassword.setErrors(null);
     }
   }
 
-  onSubmit(): void {
-    this.submitted = true;
+  // tslint:disable-next-line:typedef
 
+  onSubmit(): void {
     if (this.registerForm.invalid) {
       return;
     }
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+    this.registerService.postRegisterUser(
+      {
+        email: this.registerForm.get('email').value,
+        password: this.registerForm.get('password').value
+      });
   }
-
-
 }
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -90,11 +110,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-export const passwordMatchValidator: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
+export const matchValidator: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
   if (formGroup.get('password').value === formGroup.get('confirmPassword').value) {
     return null;
-  }
-  else {
+  } else {
     return {passwordMismatch: true};
   }
 };
