@@ -36,7 +36,7 @@
                    placeholder="password">
           </label>
 
-          <mat-icon matSuffix (click)="showPassword = !showPassword">
+          <mat-icon class="visibility_toggler" matSuffix (click)="showPassword = !showPassword">
             {{showPassword ? 'visibility_off' : 'visibility'}}
           </mat-icon>
 
@@ -60,7 +60,7 @@
                    placeholder="confirm password">
           </label>
 
-          <mat-icon matSuffix (click)="showConfirmPassword = !showConfirmPassword">
+          <mat-icon class="visibility_toggler" matSuffix (click)="showConfirmPassword = !showConfirmPassword">
             {{showConfirmPassword ? 'visibility_off' : 'visibility'}}
           </mat-icon>
 
