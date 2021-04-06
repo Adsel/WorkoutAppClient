@@ -21,7 +21,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  private REGISTRATION_ERROR_MESSAGE = 'Unknown error. Try again later.';
 
   constructor(
     private route: ActivatedRoute,
@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       response => {
-        let resultMessage = 'Unknown error. Try again later.';
+        let resultMessage = this.REGISTRATION_ERROR_MESSAGE;
         if (!!response.error) {
           resultMessage = response.error.resultMessage;
         }
