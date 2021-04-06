@@ -104,6 +104,8 @@ export class RegisterComponent implements OnInit {
       response => {
         if (response.status === 0){
           alert(this.REGISTRATION_ERROR_MESSAGE_NO_CONNECTION);
+        }else if (response.status === 401){
+          this.email.setErrors([{emailInUse: true}]);
         }
         else{
           alert(this.REGISTRATION_ERROR_MESSAGE);
