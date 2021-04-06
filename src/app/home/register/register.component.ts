@@ -24,11 +24,11 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private formBuilder: FormBuilder,
-    private registerService: RegisterService,
-    @Inject(CONFIG) private config: Config
-  ) {
-  }
+    private registerService: RegisterService
+  ) { }
 
   get email(): any {
     return this.registerForm.get('email');
@@ -88,8 +88,6 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // tslint:disable-next-line:typedef
-
   onSubmit(): void {
     if (this.registerForm.invalid) {
       return;
@@ -99,6 +97,18 @@ export class RegisterComponent implements OnInit {
       {
         email: this.registerForm.get('email').value,
         password: this.registerForm.get('password').value
+      }).subscribe(
+      (val) => {
+        console.log('VAL', val);
+        this.router.navigate(['/login']);
+      },
+      response => {
+        let resultMessage = 'Unknown error. Try again later.';
+        if (!!response.error) {
+          resultMessage = response.error.resultMessage;
+        }
+
+        // TODO: use resultMessage variable in view
       });
   }
 }
