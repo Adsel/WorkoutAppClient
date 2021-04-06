@@ -48,15 +48,23 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { ConnectionRefusedComponent } from './connection-refused/connection-refused.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [
+    NavbarComponent,
+    LoadingScreenComponent,
+    ConnectionRefusedComponent
+  ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     MatIconModule,
     BottomNavModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     A11yModule,
@@ -103,7 +111,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    NavbarComponent
+    NavbarComponent,
+    LoadingScreenComponent
   ],
 })
 export class SharedModule { }

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,14 +6,14 @@ import {
   NgForm,
   Validators,
   FormBuilder,
-  AbstractControl,
   ValidatorFn,
   ValidationErrors
 } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {RegisterService} from '../../core/register.service';
-import {Config, CONFIG, UserRegisterDTO} from '../../model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {ConnectionRefusedComponent} from '../../shared/connection-refused/connection-refused.component';
 
 @Component({
   selector: 'app-register',
@@ -29,8 +29,10 @@ export class RegisterComponent implements OnInit {
   showPassword = true;
   showConfirmPassword = true;
   minPasswordLength = 8;
+  showLoading = false;
 
   constructor(
+    public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
@@ -51,6 +53,10 @@ export class RegisterComponent implements OnInit {
 
   get f(): any {
     return this.registerForm.controls;
+  }
+
+  openConnectionRefusedDialog(): void{
+    this.dialog.open(ConnectionRefusedComponent);
   }
 
   ngOnInit(): void {
@@ -92,6 +98,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.showLoading = true;
+
     this.registerService.postRegisterUser(
       {
         email: this.registerForm.get('email').value,
@@ -99,17 +107,23 @@ export class RegisterComponent implements OnInit {
       }).subscribe(
       (val) => {
         console.log('VAL', val);
+        this.showLoading = false;
+
         this.router.navigate(['/login']);
       },
       response => {
+        this.showLoading = false;
         if (response.status === 0){
-          alert(this.REGISTRATION_ERROR_MESSAGE_NO_CONNECTION);
+          this.openConnectionRefusedDialog();
         }else if (response.status === 401){
           this.email.setErrors([{emailInUse: true}]);
         }
         else{
           alert(this.REGISTRATION_ERROR_MESSAGE);
         }
+      },
+      () => {
+        this.showLoading = false;
       });
   }
 }
