@@ -7,14 +7,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class LoadingScreenComponent implements OnInit {
 
-  @Input()
-  title: string;
-  @Input()
-  description: string;
-  @Input()
-  error = false;
-  @Input()
-  loading = false;
+  @Input() title: string;
+  @Input() description: string;
+  @Input() error = false;
+  @Input() loading = false;
 
   constructor() { }
 
