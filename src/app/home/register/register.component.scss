@@ -1,0 +1,20 @@
+@import "../../../assets/scss/shared";
+
+.user-form {
+  min-width: 150px;
+  max-width: 100%;
+  width: 100%;
+
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.visibility_toggler {
+  cursor: pointer;
+}
+
+.button-cta {
+  margin-bottom: $spacing-4;
+}

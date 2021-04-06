@@ -8,25 +8,30 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {SharedModule} from '../shared/shared.module';
+import { RegisterComponent } from './register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'welcome', component: WelcomeComponent }
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
   declarations: [
     WelcomeComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatStepperModule,
-    MatIconModule,
-    MatDividerModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatStepperModule,
+        MatIconModule,
+        MatDividerModule,
+        SharedModule,
+        ReactiveFormsModule
+    ],
   exports: [
     WelcomeComponent
   ]

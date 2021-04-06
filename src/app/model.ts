@@ -15,6 +15,16 @@ export interface ExerciseCategoryDTO {
   categories: ExerciseCategory[];
 }
 
+export interface UserData {
+  id: number;
+  email: string;
+}
+
+export interface UserRegisterDTO {
+  email: string;
+  password: string;
+}
+
 export interface Exercise {
   id: number;
   name: string;

@@ -1,4 +1,126 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "custom-theme.scss";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.neon-button {
+  width: 100%;
+  border: 2px #953FFF solid !important;
+  border-radius: 100px !important;
+  padding: 10px 15px !important;
+  color: #953FFF;
+
+  mat-icon {
+    font-size: 1.5em;
+    float: left;
+    margin: 0.27em 0px;
+  }
+}
+
+.neon-button-blue {
+  color: mat-color(mat-palette($md-blue, 500)) !important;
+  border-color: mat-color(mat-palette($md-blue, 500)) !important;
+}
+
+.divider {
+  height: 4px;
+  width: 27px;
+  border-radius: 2px;
+  background-color: mat-color(mat-palette($md-blue, 500)) !important;
+  margin: 0 auto;
+}
+
+.header-app {
+  position: relative;
+  .header-text{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    .head{
+      font: 500 42px/40px Roboto, monospace;
+    }
+    .subhead{
+      font: 300 34px/40px Roboto, monospace;
+    }
+  }
+
+  min-height: 230px;
+  @media (max-width: 1024px) {
+    min-height: 350px;
+
+  }
+  border-bottom: 3px mat-color(mat-palette($md-purple, 500)) solid !important;
+  width: 100%;
+  background-image: url('/assets/img1.jpg');
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-width: 2px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-width: 2px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-gap {
+  border-width: 2px !important;
+}
+
+// mat-icon-stepper selected color change
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: mat-color(mat-palette($md-purple, 500)) !important;
+}
+
+//input outline color
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: mat-color(mat-palette($md-purple, 500)) !important;
+}
+
+//mat-input focused color
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: mat-color(mat-palette($md-purple, 500)) !important;
+}
+
+// mat-label focused style
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: mat-color(mat-palette($md-purple, 500)) !important;
+}
+
+// mat-input carent color
+.mat-input-element {
+  caret-color: mat-color(mat-palette($md-purple, 500)) !important;
+}
+
+// mat-input error outline color
+.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+  color: mat-color(mat-palette($md-red, 500)) !important;
+  opacity: 0.8 !important;
+}
+
+// mat-label error style
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: mat-color(mat-palette($md-red, 500)) !important;
+}
+
+// mat-input error carent color
+.mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+  caret-color: mat-color(mat-palette($md-red, 500)) !important;
+}
+
+
