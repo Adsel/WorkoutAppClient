@@ -21,7 +21,14 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  private REGISTRATION_ERROR_MESSAGE_NO_CONNECTION = 'Cannot connect with server. Try again later.';
   private REGISTRATION_ERROR_MESSAGE = 'Unknown error. Try again later.';
+  registerForm: FormGroup;
+  matcher = new MyErrorStateMatcher();
+  showPassword = true;
+  showConfirmPassword = true;
+  minPasswordLength = 8;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,14 +52,6 @@ export class RegisterComponent implements OnInit {
   get f(): any {
     return this.registerForm.controls;
   }
-  registerForm: FormGroup;
-
-  matcher = new MyErrorStateMatcher();
-
-  showPassword = true;
-  showConfirmPassword = true;
-
-  minPasswordLength = 8;
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -103,12 +102,12 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       response => {
-        let resultMessage = this.REGISTRATION_ERROR_MESSAGE;
-        if (!!response.error) {
-          resultMessage = response.error.resultMessage;
+        if (response.status === 0){
+          alert(this.REGISTRATION_ERROR_MESSAGE_NO_CONNECTION);
         }
-
-        // TODO: use resultMessage variable in view
+        else{
+          alert(this.REGISTRATION_ERROR_MESSAGE);
+        }
       });
   }
 }
