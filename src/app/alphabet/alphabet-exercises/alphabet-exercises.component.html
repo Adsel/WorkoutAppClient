@@ -1,0 +1,26 @@
+<app-alphabet-header
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [level]="0">
+</app-alphabet-header>
+
+<div class="container p-0">
+  <div class="row justify-content-center ">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <div *ngIf="this.categoryExists" class="text-center exercise-wrapper">
+        <span class="caption-primary">Category: {{this.categoryName}}</span>
+        <div *ngFor="let exercise of this.exercises"
+             class="exercise"
+        >
+          <a routerLink="/exercises/exercise/{{exercise.id}}">
+            <h2>{{exercise.name | uppercase}}</h2>
+          </a>
+        </div>
+      </div>
+
+      <div *ngIf="!this.categoryExists" class="text-center exercise-wrapper">
+        <span class="caption-primary">Category doesn't exists</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-navbar></app-navbar>
