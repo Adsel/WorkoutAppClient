@@ -1,3 +1,5 @@
+@import "../../../assets/scss/shared";
+
 .user-form {
   min-width: 150px;
   max-width: 100%;
@@ -13,3 +15,6 @@
   cursor: pointer;
 }
 
+.button-cta {
+  margin-bottom: $spacing-4;
+}
