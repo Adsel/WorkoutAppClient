@@ -26,7 +26,7 @@ import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
 
 const config: Config = {
-  apiUrl: 'http://192.168.0.100:8080/api',
+  apiUrl: 'http://localhost:8080/api',
   alphabetPlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
 };
 
