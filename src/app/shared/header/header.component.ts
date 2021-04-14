@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-alphabet-header',
-  templateUrl: './alphabet-header.component.html',
-  styleUrls: ['./alphabet-header.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class AlphabetHeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   @Input() viewNameBold: string;
   @Input() viewNameRegular: string;
   @Input() level: number;

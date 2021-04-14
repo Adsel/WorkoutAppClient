@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./planer-list.component.css']
 })
 export class PlanerListComponent implements OnInit {
-
+  viewNameBold = 'Planer';
+  viewNameRegular = '';
   constructor() { }
 
   ngOnInit(): void {
