@@ -23,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
-import {PlannerModule} from "./planner/planner.module";
+import {PlanerModule} from "./planer/planer.module";
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -49,7 +49,7 @@ const config: Config = {
     SharedModule,
     ReactiveFormsModule,
     HomeModule,
-    PlannerModule,
+    PlanerModule,
     AlphabetModule,
     HttpClientModule
   ],

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-planner-list',
-  templateUrl: './planner-list.component.html',
-  styleUrls: ['./planner-list.component.css']
+  templateUrl: './planer-list.component.html',
+  styleUrls: ['./planer-list.component.css']
 })
-export class PlannerListComponent implements OnInit {
+export class PlanerListComponent implements OnInit {
 
   constructor() { }
 
