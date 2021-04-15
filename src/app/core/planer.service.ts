@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Config, CONFIG, PlanCategoryDTO, PlansDTO} from '../model';
+import {Config, CONFIG, PlanCategoryDTO, PlanExercisesDTO, PlansDTO} from '../model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -19,4 +19,9 @@ export class PlanerService {
   getPlanCategory(planCategoryId: number): Observable<PlanCategoryDTO> {
     return this.httpClient.get<PlanCategoryDTO>(`${this.config.apiUrl}/exercise-plans/categories/${planCategoryId}`);
   }
+
+  getPlanExercises(planId: number): Observable<PlanExercisesDTO> {
+    return this.httpClient.get<PlanExercisesDTO>(`${this.config.apiUrl}/exercise-plans/exercises/${planId}`);
+  }
+
 }

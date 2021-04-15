@@ -68,4 +68,15 @@ export interface Plan {
   categoryName: string;
 }
 
+export interface PlanExerciseDTO {
+  id: number;
+  id_training_plan: number;
+  id_exercise: number;
+  day_type: number;
+}
+
+export interface PlanExercisesDTO {
+  planExercises: PlanExerciseDTO[];
+}
+
 export const CONFIG = new InjectionToken<Config>('app.config');
