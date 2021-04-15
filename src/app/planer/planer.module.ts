@@ -7,6 +7,7 @@ import { PlanerPlanComponent } from './planer-plan/planer-plan.component';
 
 const routes = [
   { path: 'planer/list', component: PlanerListComponent },
+  { path: 'planer/:id', component: PlanerPlanComponent }
 ];
 
 
