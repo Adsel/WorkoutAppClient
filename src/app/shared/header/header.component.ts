@@ -8,18 +8,11 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() viewNameBold: string;
   @Input() viewNameRegular: string;
-  @Input() level: number;
-  private availableLevelClassess = [
-    'header-image-first',
-    'header-image-second',
-    'header-image-third'
-  ];
-  public currentLevelClass: string;
+  @Input() imageUrl: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.currentLevelClass = this.availableLevelClassess[this.level];
   }
 
 }
