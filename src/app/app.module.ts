@@ -27,7 +27,7 @@ import {PlanerModule} from "./planer/planer.module";
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
-  alphabetPlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
+  imagePlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
 };
 
 @NgModule({

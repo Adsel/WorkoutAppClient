@@ -1,5 +1,5 @@
 <app-header
-  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/image/alphabet/header-third.jpg'">
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/image/alphabet/header-first.jpg'">
 </app-header>
 
 <div class="container p-0">
@@ -8,7 +8,7 @@
       <div class="text-center plans-wrapper">
         <span class="caption-primary">Choose training plan</span>
         <div *ngFor="let plan of this.plans"
-             [ngStyle]="{'background-image': 'url(' + (plan.image != null ? plan.image: this.plan.alphabetPlaceholderPath) + ')'}"
+             [ngStyle]="{'background-image': 'url(' + (plan.image != null ? plan.image: this.config.imagePlaceholderPath) + ')'}"
              class="plan"
         >
           <a routerLink="/exercises/category/{{plan.id}}">

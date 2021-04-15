@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {PlanerService} from '../../core/planer.service';
-import {Plan} from '../../model';
+import {Config, CONFIG, Plan} from '../../model';
 
 @Component({
   selector: 'app-planner-list',
@@ -12,7 +12,10 @@ export class PlanerListComponent implements OnInit {
   viewNameRegular = 'List';
   plans: Plan[];
 
-  constructor(private planerService: PlanerService) { }
+  constructor(
+    private planerService: PlanerService,
+    @Inject(CONFIG) private config: Config
+  ) { }
 
   ngOnInit(): void {
     this.plans = [];
