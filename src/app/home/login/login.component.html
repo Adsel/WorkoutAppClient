@@ -1,0 +1,82 @@
+<div class="header-app">
+  <div class="header-text mx-4">
+    <h1 class="head">WORKOUT</h1>
+    <h2 class="subhead">Login</h2>
+  </div>
+</div>
+
+<div class="container p-0 mt-5">
+  <div class="row justify-content-center ">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+
+      <form class="user-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" class="mt-1 user-form input-full-width">
+
+          <mat-label>Login</mat-label>
+          <label>
+            <input type="Email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                   placeholder="yourEmail@example.com">
+          </label>
+          <mat-error *ngIf="email.invalid && !email.hasError('required') && !email.hasError('email')">
+            Email in use
+          </mat-error>
+          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>empty</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mt-4 user-form input-full-width">
+          <mat-label>Password</mat-label>
+          <label>
+            <input type="Password" matInput formControlName="password" [errorStateMatcher]="matcher"
+                   [type]="showPassword ? 'password' : 'text'"
+                   placeholder="password">
+          </label>
+
+          <mat-icon class="visibility_toggler" matSuffix (click)="showPassword = !showPassword">
+            {{showPassword ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+
+          <mat-error *ngIf="password.hasError('pattern') && !password.hasError('required')">
+            Password must be numbers and / or letters
+          </mat-error>
+          <mat-error *ngIf="password.hasError('minlength')">
+            Password must have at least {{minPasswordLength}} characters
+          </mat-error>
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>empty</strong>
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-slide-toggle class="mb-5"
+                          [color]="'primary'"
+                          [checked]="rememberLogin"
+                          (change)="onChange($event)">
+          Remember Login
+        </mat-slide-toggle>
+
+        <div class="divider mt-2 mb-4"></div>
+
+        <button mat-button class="neon-button button-cta" color="primary" (input)="onSubmit()">
+          <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+          LOGIN
+        </button>
+        <button mat-button class="neon-button neon-button-blue button-cta" color="primary" (input)="onSubmit()">
+          <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-user-plus"></mat-icon>
+          REGISTER
+        </button>
+
+      </form>
+    </div>
+  </div>
+  <app-loading-screen
+    [title]='"Loading..."'
+    [description]='"Creating account"'
+    [loading] = showLoading>
+  </app-loading-screen>
+</div>

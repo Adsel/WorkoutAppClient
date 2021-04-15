@@ -25,6 +25,11 @@ export interface UserRegisterDTO {
   password: string;
 }
 
+export interface UserLoginDTO {
+  email: string;
+  password: string;
+}
+
 export interface Exercise {
   id: number;
   name: string;
