@@ -30,6 +30,9 @@
 
     & > .exercise-content {
       width: calc(100% - #{$squareSide});
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       & > p {
         margin-bottom: 0.25rem;

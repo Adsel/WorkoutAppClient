@@ -1,8 +1,8 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {PlanerService} from '../../core/planer.service';
-import {Config, CONFIG, Exercise} from '../../model';
-import {ExerciseService} from "../../core/exercise.service";
-import {ActivatedRoute} from "@angular/router";
+import {Config, CONFIG, Exercise, PlanExercise} from '../../model';
+import {ExerciseService} from '../../core/exercise.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-planer-plan',
@@ -13,7 +13,7 @@ export class PlanerPlanComponent implements OnInit {
   viewNameBold = 'Workout';
   viewNameRegular = 'Planer';
   viewNameThin = 'Plan #';
-  exercises: Exercise[];
+  exercises: PlanExercise[];
   exerciseCount: number;
 
   constructor(
@@ -31,13 +31,16 @@ export class PlanerPlanComponent implements OnInit {
         if (!!exercises && !!exercises.planExercises) {
           this.exerciseCount = exercises.planExercises.length;
           this.viewNameThin += planId;
+          console.log('EX', exercises);
           exercises.planExercises.forEach(planExercise => {
             this.exerciseService.getExercise(planExercise.id_exercise).subscribe(exercise => {
               this.exercises.push({
                 id: exercise.id,
                 name: exercise.name,
-                description: exercise.description,
-                videoUrl: exercise.videoUrl
+                sets: planExercise.sets,
+                reps: planExercise.reps,
+                secs: planExercise.secs,
+                other: planExercise.other
               });
             });
           });

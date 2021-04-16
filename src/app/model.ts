@@ -32,6 +32,15 @@ export interface Exercise {
   videoUrl: string;
 }
 
+export interface PlanExercise {
+  id: number;
+  name: string;
+  sets: number;
+  reps: number;
+  secs: number;
+  other: string;
+}
+
 export interface ExercisesDTO {
   exercises: Exercise[];
   resultMessage: string;
@@ -73,6 +82,10 @@ export interface PlanExerciseDTO {
   id_training_plan: number;
   id_exercise: number;
   day_type: number;
+  sets: number;
+  reps: number;
+  secs: number;
+  other: string;
 }
 
 export interface PlanExercisesDTO {

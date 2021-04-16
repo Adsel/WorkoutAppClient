@@ -13,8 +13,14 @@
             <div class="exercise-content">
               <h3>EXERCISE #{{index + 1}}</h3>
               <p>{{exercise.name}}</p>
-              <p>{{exercise}}</p>
-              <span class="exercise-desc">{{exercise.description}}</span>
+              <span class="exercise-desc" *ngIf="!!exercise.sets || !!exercise.reps || !!exercise.secs; else description">
+                {{exercise.sets ? exercise.sets : ''}}
+                x
+                {{exercise.reps ? exercise.reps + 'reps' : exercise.secs + 's' }}
+              </span>
+              <ng-template #description>
+                <span class="exercise-desc">{{exercise.other}}</span>
+              </ng-template>
             </div>
           </a>
         </div>
