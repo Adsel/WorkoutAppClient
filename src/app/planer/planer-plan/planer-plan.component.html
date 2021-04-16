@@ -8,13 +8,15 @@
       <div class="text-center plan-wrapper">
         <span class="caption-primary">{{exerciseCount}} exercises</span>
         <div class="exercise" *ngFor="let exercise of this.exercises; index as index">
-          <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
-          <div class="exercise-content">
-            <h3>EXERCISE #{{index + 1}}</h3>
-            <p>{{exercise.name}}</p>
-            <p>{{exercise}}</p>
-            <span class="exercise-desc">{{exercise.description}}</span>
-          </div>
+          <a routerLink="/exercises/exercise/{{exercise.id}}">
+            <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
+            <div class="exercise-content">
+              <h3>EXERCISE #{{index + 1}}</h3>
+              <p>{{exercise.name}}</p>
+              <p>{{exercise}}</p>
+              <span class="exercise-desc">{{exercise.description}}</span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
