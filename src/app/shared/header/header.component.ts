@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() viewNameBold: string;
   @Input() viewNameRegular: string;
+  @Input() viewNameThin?: string;
   @Input() imageUrl: string;
 
   constructor() { }

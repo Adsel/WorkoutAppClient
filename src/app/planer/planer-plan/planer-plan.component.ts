@@ -10,8 +10,9 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./planer-plan.component.scss']
 })
 export class PlanerPlanComponent implements OnInit {
-  viewNameBold = 'Planer';
-  viewNameRegular = 'Plan #';
+  viewNameBold = 'Workout';
+  viewNameRegular = 'Planer';
+  viewNameThin = 'Plan #';
   exercises: Exercise[];
 
   constructor(
@@ -27,7 +28,7 @@ export class PlanerPlanComponent implements OnInit {
       const planId = params.id;
       this.planerService.getPlanExercises(planId).subscribe(exercises => {
         if (!!exercises && !!exercises.planExercises) {
-          this.viewNameRegular += planId;
+          this.viewNameThin += planId;
           exercises.planExercises.forEach(planExercise => {
             this.exerciseService.getExercise(planExercise.id_exercise).subscribe(exercise => {
               this.exercises.push({
