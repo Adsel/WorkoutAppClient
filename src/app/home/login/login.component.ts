@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
         ]
       ]
     });
-    console.log(localStorage.getItem('rememberLogin') )
+    console.log(localStorage.getItem('rememberLogin') );
     if (localStorage.getItem('rememberLogin') === 'true'){
       this.rememberLogin = true;
       const userLogin = JSON.parse(localStorage.getItem('loginData'));
@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit {
         if (response.status === 0){
           this.openConnectionRefusedDialog();
         }else if (response.status === 401){
-          this.email.setErrors([{emailInUse: true}]);
+          this.password.setErrors([{wrongLogin: true}]);
         }
         else{
           alert(this.LOGIN_ERROR_MESSAGE);
