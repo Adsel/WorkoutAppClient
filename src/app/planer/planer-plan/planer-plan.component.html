@@ -15,6 +15,7 @@
               <p>{{exercise.name}}</p>
               <span class="exercise-desc" *ngIf="!!exercise.sets || !!exercise.reps || !!exercise.secs; else description">
                 {{exercise.sets ? exercise.sets : ''}}
+                x
                 {{exercise.reps ? exercise.reps + 'reps' : exercise.secs + 's' }}
               </span>
               <ng-template #description>
