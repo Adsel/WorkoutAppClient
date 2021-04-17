@@ -1,0 +1,33 @@
+<app-header
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [viewNameThin]="viewNameThin" [imageUrl]="'/assets/image/planer/header-second.jpg'">
+</app-header>
+
+<div class="container p-0">
+  <div class="row justify-content-center ">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <div class="text-center plan-wrapper">
+        <span class="caption-primary">{{exerciseCount}} exercises</span>
+        <div class="exercise" *ngFor="let exercise of this.exercises; index as index">
+          <a class="overflow-hidden" routerLink="/exercises/exercise/{{exercise.id}}">
+            <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
+            <div class="exercise-content">
+              <h3>EXERCISE #{{index + 1}}</h3>
+              <p>{{exercise.name}}</p>
+              <span class="exercise-desc" *ngIf="!!exercise.sets || !!exercise.reps || !!exercise.secs; else description">
+                {{exercise.sets ? exercise.sets : ''}}
+                x
+                {{exercise.reps ? exercise.reps + 'reps' : exercise.secs + 's' }}
+              </span>
+              <ng-template #description>
+                <span class="exercise-desc">{{exercise.other}}</span>
+              </ng-template>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-navbar></app-navbar>

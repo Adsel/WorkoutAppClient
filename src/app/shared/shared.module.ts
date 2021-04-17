@@ -51,12 +51,14 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { ConnectionRefusedComponent } from './connection-refused/connection-refused.component';
 import {MatDialog} from '@angular/material/dialog';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     LoadingScreenComponent,
-    ConnectionRefusedComponent
+    ConnectionRefusedComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -112,6 +114,7 @@ import {MatDialog} from '@angular/material/dialog';
     PortalModule,
     ScrollingModule,
     NavbarComponent,
+    HeaderComponent,
     LoadingScreenComponent
   ],
 })

@@ -1,0 +1,24 @@
+<app-header
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/image/planer/header-first.jpg'">
+</app-header>
+
+<div class="container p-0">
+  <div class="row justify-content-center ">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <div class="text-center plans-wrapper">
+        <span class="caption-primary">Choose training plan</span>
+        <div *ngFor="let plan of this.plans"
+             [ngStyle]="{'background-image': 'url(' + (plan.image != null ? plan.image: this.config.imagePlaceholderPath) + ')'}"
+             class="plan"
+        >
+          <a routerLink="/planer/{{plan.id}}">
+            <h2>{{plan.name | uppercase}}</h2>
+            <span>Category: {{plan.categoryName}}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-navbar></app-navbar>

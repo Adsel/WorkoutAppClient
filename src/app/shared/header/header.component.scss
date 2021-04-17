@@ -26,18 +26,12 @@
 
     & > h2 {
       font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    & > .thinShortName {
+      font-weight: 300;
+      font-size: 1.5rem;
     }
   }
-}
-
-.header-image-first {
-  background-image: url('/assets/image/alphabet/header-first.jpg');
-}
-
-.header-image-second {
-  background-image: url('/assets/image/alphabet/header-second.jpg');
-}
-
-.header-image-third {
-  background-image: url('/assets/image/alphabet/header-third.jpg');
 }

@@ -8,7 +8,6 @@ import { BottomNavModule } from 'ngx-bottom-nav';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './pages/notes/notes.component';
-import { PlanerComponent } from './pages/planer/planer.component';
 import { AtlasComponent } from './pages/atlas/atlas.component';
 import { UserComponent } from './pages/user/user.component';
 
@@ -24,10 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
+import {PlanerModule} from "./planer/planer.module";
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
-  alphabetPlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
+  imagePlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
 };
 
 @NgModule({
@@ -35,7 +35,6 @@ const config: Config = {
     AppComponent,
     UserComponent,
     NotesComponent,
-    PlanerComponent,
     AtlasComponent,
     PageNotFoundComponent
   ],
@@ -50,6 +49,7 @@ const config: Config = {
     SharedModule,
     ReactiveFormsModule,
     HomeModule,
+    PlanerModule,
     AlphabetModule,
     HttpClientModule
   ],
