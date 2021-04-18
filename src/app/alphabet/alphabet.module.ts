@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from '../pages/page-not-found/page-not-found.co
 import { SharedModule } from '../shared/shared.module';
 import { AlphabetExercisesComponent } from './alphabet-exercises/alphabet-exercises.component';
 import { AlphabetDetailsComponent } from './alphabet-details/alphabet-details.component';
+import {EmbedVideo} from "ngx-embed-video";
 
 const routes = [
   { path: 'exercises/categories', component: AlphabetCategoriesComponent },
@@ -23,7 +24,8 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    EmbedVideo.forRoot()
   ],
   exports: [
     AlphabetCategoriesComponent

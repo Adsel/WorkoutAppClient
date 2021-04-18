@@ -7,6 +7,7 @@
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
 
       <div *ngIf="this.exerciseExists" class="category-wrapper">
+        <div class="mt-2" [innerHtml]="iFrameYoutube"></div>
         <div class="mt-4 text-title">
           {{exercise.name}}
         </div>

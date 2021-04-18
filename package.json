@@ -28,6 +28,7 @@
     "jquery": "^3.6.0",
     "material-bottom-nav": "^1.2.0",
     "ngx-bottom-nav": "^11.0.0",
+    "ngx-embed-video": "^1.0.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
