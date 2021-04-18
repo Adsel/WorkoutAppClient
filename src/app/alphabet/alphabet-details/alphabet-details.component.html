@@ -1,0 +1,23 @@
+<app-header
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/image/alphabet/header-first.jpg'">
+</app-header>
+
+<div class="container p-0">
+  <div class="row justify-content-center ">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+
+      <div *ngIf="this.exerciseExists" class="category-wrapper">
+        <div class="mt-4 text-title">
+          {{exercise.name}}
+        </div>
+        <div class="mt-2 text-justify text-thin">
+            {{exercise.description}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-navbar></app-navbar>
+
