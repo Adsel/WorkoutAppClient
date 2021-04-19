@@ -14,19 +14,19 @@
         <mat-form-field appearance="outline" class="mt-1 user-form input-full-width">
 
           <mat-label>Login</mat-label>
+
           <label>
             <input type="Email" matInput formControlName="email" [errorStateMatcher]="matcher"
                    placeholder="yourEmail@example.com">
           </label>
-          <mat-error *ngIf="email.invalid && !email.hasError('required') && !email.hasError('email')">
-            Email in use
-          </mat-error>
-          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="email.hasError('required')">
-            Email is <strong>empty</strong>
-          </mat-error>
+            <mat-error *ngIf="email.hasError('email') &&
+                              !email.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+
+            <mat-error *ngIf="email.hasError('wrongLogin')">
+              Email is <strong>empty</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="mt-4 user-form input-full-width">
@@ -36,12 +36,18 @@
                    [type]="showPassword ? 'password' : 'text'"
                    placeholder="password">
           </label>
-
           <mat-icon class="visibility_toggler" matSuffix (click)="showPassword = !showPassword">
             {{showPassword ? 'visibility_off' : 'visibility'}}
           </mat-icon>
-
-          <mat-error *ngIf="password.hasError('pattern') && !password.hasError('required')">
+          <mat-error *ngIf="password.invalid &&
+                            !password.hasError('required') &&
+                            !password.hasError('wrongLogin')&&
+                            !password.hasError('pattern') &&
+                            !password.hasError('minlength')">
+            Wrong password
+          </mat-error>
+          <mat-error *ngIf="password.hasError('pattern') &&
+                            !password.hasError('required')">
             Password must be numbers and / or letters
           </mat-error>
           <mat-error *ngIf="password.hasError('minlength')">
