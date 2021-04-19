@@ -29,7 +29,7 @@ export class AlphabetDetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       const exerciseId = params.id;
       this.exerciseService.getExercise(exerciseId).subscribe(response => {
-        this.exerciseExists =  (!!response.name || response.name.length !== 0);
+        this.exerciseExists =  (!!response.name && response.name.length !== 0);
         console.log(this.exerciseExists);
         if (this.exerciseExists) {
           this.exercise = response;
