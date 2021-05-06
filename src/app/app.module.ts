@@ -20,10 +20,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import {CONFIG, Config} from './model';
+import { CONFIG, Config } from './model';
 import { ExerciseService } from './core/exercise.service';
-import {ReactiveFormsModule} from '@angular/forms';
-import {PlanerModule} from "./planer/planer.module";
+import { ReactiveFormsModule } from '@angular/forms';
+import { PlanerModule } from './planer/planer.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -39,9 +39,9 @@ const config: Config = {
     PageNotFoundComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     BottomNavModule,
     MatIconModule,
     MatSliderModule,

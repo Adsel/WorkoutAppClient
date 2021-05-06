@@ -13,10 +13,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 const routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'welcome', component: WelcomeComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'home', component: HomeComponent, data: { animation: 'home' } },
+  { path: 'welcome', component: WelcomeComponent, data: { animation: 'welcome' } },
+  { path: 'register', component: RegisterComponent, data: { animation: 'register' } },
+  { path: 'login', component: LoginComponent, data: { animation: 'login' } }
 ];
 
 @NgModule({
