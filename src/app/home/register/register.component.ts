@@ -10,10 +10,10 @@ import {
   ValidationErrors
 } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {RegisterService} from '../../core/register.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {ConnectionRefusedComponent} from '../../shared/connection-refused/connection-refused.component';
+import {RegisterService} from '../../core/register.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +21,8 @@ import {ConnectionRefusedComponent} from '../../shared/connection-refused/connec
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  viewNameBold = 'Workout';
+  viewNameRegular = 'Register';
   private REGISTRATION_ERROR_MESSAGE_NO_CONNECTION = 'Cannot connect with server. Try again later.';
   private REGISTRATION_ERROR_MESSAGE = 'Unknown error. Try again later.';
   registerForm: FormGroup;
