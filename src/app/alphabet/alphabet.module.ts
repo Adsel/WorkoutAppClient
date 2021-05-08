@@ -6,13 +6,13 @@ import { PageNotFoundComponent } from '../pages/page-not-found/page-not-found.co
 import { SharedModule } from '../shared/shared.module';
 import { AlphabetExercisesComponent } from './alphabet-exercises/alphabet-exercises.component';
 import { AlphabetDetailsComponent } from './alphabet-details/alphabet-details.component';
-import { EmbedVideo } from 'ngx-embed-video';
+import {EmbedVideo} from "ngx-embed-video";
 
 const routes = [
-  { path: 'exercises/categories', component: AlphabetCategoriesComponent, data: { animation: 'exercises-categories' } },
-  { path: 'exercises/category/:id', component: AlphabetExercisesComponent, data: { animation: 'exercises-category' } },
-  { path: 'exercises/exercise/:id', component: AlphabetDetailsComponent, data: { animation: 'exercises' } },
-  { path: '**', component: PageNotFoundComponent, data: { animation: 'not-found' } }
+  { path: 'exercises/categories', component: AlphabetCategoriesComponent },
+  { path: 'exercises/category/:id', component: AlphabetExercisesComponent },
+  { path: 'exercises/exercise/:id', component: AlphabetDetailsComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
