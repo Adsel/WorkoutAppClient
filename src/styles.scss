@@ -39,37 +39,6 @@ body {
   margin: 0 auto;
 }
 
-.header-app {
-  position: relative;
-  .header-text{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    .head{
-      font: 500 42px/40px Roboto, monospace;
-    }
-    .subhead{
-      font: 300 34px/40px Roboto, monospace;
-    }
-  }
-
-  min-height: 230px;
-  @media (max-width: 1024px) {
-    min-height: 350px;
-
-  }
-  border-bottom: 3px mat-color(mat-palette($md-purple, 500)) solid !important;
-  width: 100%;
-  background-image: url('/assets/img1.jpg');
-  background-position: 0% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-
-
 .mat-form-field-appearance-outline .mat-form-field-outline-start {
   border-width: 2px !important;
 }

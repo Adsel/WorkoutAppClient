@@ -8,7 +8,6 @@ import { BottomNavModule } from 'ngx-bottom-nav';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotesComponent } from './pages/notes/notes.component';
-import { AtlasComponent } from './pages/atlas/atlas.component';
 import { UserComponent } from './pages/user/user.component';
 
 import { AlphabetModule } from './alphabet/alphabet.module';
@@ -35,7 +34,6 @@ const config: Config = {
     AppComponent,
     UserComponent,
     NotesComponent,
-    AtlasComponent,
     PageNotFoundComponent
   ],
   imports: [

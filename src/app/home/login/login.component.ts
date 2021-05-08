@@ -5,18 +5,14 @@ import {
   FormGroup,
   FormGroupDirective,
   NgForm,
-  ValidationErrors,
-  ValidatorFn,
   Validators
 } from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {ActivatedRoute, Router} from '@angular/router';
-import {RegisterService} from '../../core/register.service';
-import {ConnectionRefusedComponent} from '../../shared/connection-refused/connection-refused.component';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {ConnectionRefusedComponent} from '../../shared/connection-refused/connection-refused.component';
 import {LoginService} from '../../core/login.service';
-import {UserLoginDTO} from '../../model';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +20,8 @@ import {UserLoginDTO} from '../../model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  viewNameBold = 'Workout';
+  viewNameRegular = 'Login';
   private LOGIN_ERROR_MESSAGE = 'Unknown error. Try again later.';
   loginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
