@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-not-found.component.scss']
 })
 export class PageNotFoundComponent implements OnInit {
+  viewNameBold = 'Oooops!';
+  viewNameRegular = 'Page not found';
 
   constructor() { }
 

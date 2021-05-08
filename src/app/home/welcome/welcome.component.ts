@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
+  viewNameBold = 'Welcome';
+  viewNameRegular = 'Get Started';
   bottom: 'bottom';
   isLinear = false;
   firstFormGroup: FormGroup;
