@@ -5,8 +5,8 @@ import {NotesComponent} from './pages/notes/notes.component';
 
 const routes: Routes = [
   { path: 'user', component: UserComponent },
-  { path: 'notes', component: NotesComponent },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' }
+  { path: 'notes', component: NotesComponent,  data: { animation: 'notes' } },
+  { path: '',   redirectTo: '/home', pathMatch: 'full', data: { animation: 'home-redirect' } }
 ];
 
 // configures NgModule imports and exports
