@@ -1,0 +1,14 @@
+@import "../../../assets/scss/shared";
+
+.page-wrap {
+  min-height: 100vh;
+}
+
+a.btn-back {
+  text-decoration: none;
+  color: $color-primary;
+
+  &:hover {
+    color: $color-primary-light;
+  }
+}
