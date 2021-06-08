@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Config, CONFIG, UserLoginDTO} from '../model';
+import {Config, CONFIG, UserData, UserDataResponse, UserLoginDTO} from '../model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,11 @@ export class LoginService {
     @Inject(CONFIG) private config: Config
   ) { }
 
-  postLoginUser(userLoginDTO: UserLoginDTO): Observable<UserLoginDTO> {
-    return this.httpClient.post<UserLoginDTO>(`${this.config.apiUrl}/user/login`, userLoginDTO);
+  postLoginUser(userLoginDTO: UserLoginDTO): Observable<UserDataResponse> {
+    return this.httpClient.post<UserDataResponse>(`${this.config.apiUrl}/user/login`, userLoginDTO);
+  }
+
+  getLoggedUser(): UserData {
+    return JSON.parse(localStorage.getItem('logged_user'));
   }
 }

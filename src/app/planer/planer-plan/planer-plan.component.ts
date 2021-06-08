@@ -3,6 +3,7 @@ import {PlanerService} from '../../core/planer.service';
 import {Config, CONFIG, Exercise, PlanExercise} from '../../model';
 import {ExerciseService} from '../../core/exercise.service';
 import {ActivatedRoute} from '@angular/router';
+import {LoginService} from "../../core/login.service";
 
 @Component({
   selector: 'app-planer-plan',
@@ -20,6 +21,7 @@ export class PlanerPlanComponent implements OnInit {
   constructor(
     private planerService: PlanerService,
     private exerciseService: ExerciseService,
+    private authService: LoginService,
     private activatedRoute: ActivatedRoute,
     @Inject(CONFIG) private config: Config
   ) { }
@@ -55,7 +57,7 @@ export class PlanerPlanComponent implements OnInit {
   getThisPlan(): void {
     this.planerService.activatePlan({
       planId: this.planId,
-      userId: 1
+      userId: this.authService.getLoggedUser()?.id
     }).subscribe(() => {});
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private loginService: LoginService
-  ) { }
+  ) {
+  }
 
   get email(): any {
     return this.loginForm.get('email');
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  openConnectionRefusedDialog(): void{
+  openConnectionRefusedDialog(): void {
     this.dialog.open(ConnectionRefusedComponent);
   }
 
@@ -72,8 +73,8 @@ export class LoginComponent implements OnInit {
         ]
       ]
     });
-    console.log(localStorage.getItem('rememberLogin') );
-    if (localStorage.getItem('rememberLogin') === 'true'){
+    console.log(localStorage.getItem('rememberLogin'));
+    if (localStorage.getItem('rememberLogin') === 'true') {
       this.rememberLogin = true;
       const userLogin = JSON.parse(localStorage.getItem('loginData'));
       this.loginForm.get('email').setValue(userLogin.email);
@@ -93,29 +94,27 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('password').value
       }).subscribe(
       (val) => {
-        console.log('VAL', val);
-        if (this.rememberLogin){
+        if (this.rememberLogin) {
           localStorage.setItem('rememberLogin', String(true));
           localStorage.setItem('loginData', JSON.stringify({
             email: this.loginForm.get('email').value,
             password: this.loginForm.get('password').value
           }));
           this.rememberLogin = true;
-        }
-        else {
+        } else {
           localStorage.setItem('rememberLogin', String(false));
         }
+        localStorage.setItem('logged_user', JSON.stringify(val.user));
         this.showLoading = false;
         this.router.navigate(['/home']).then(() => null);
       },
       response => {
         this.showLoading = false;
-        if (response.status === 0){
+        if (response.status === 0) {
           this.openConnectionRefusedDialog();
-        }else if (response.status === 401){
+        } else if (response.status === 401) {
           this.password.setErrors([{wrongLogin: true}]);
-        }
-        else{
+        } else {
           alert(this.LOGIN_ERROR_MESSAGE);
         }
       },
@@ -126,7 +125,7 @@ export class LoginComponent implements OnInit {
 
   onChange($event: MatSlideToggleChange): void {
     this.rememberLogin = $event.checked;
-    if (!this.rememberLogin){
+    if (!this.rememberLogin) {
       localStorage.removeItem('loginData');
       localStorage.removeItem('rememberLogin');
     }

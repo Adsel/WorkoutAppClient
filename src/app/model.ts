@@ -20,6 +20,12 @@ export interface UserData {
   email: string;
 }
 
+export interface UserDataResponse {
+  user: UserData;
+  resultMessage: string;
+  loginStatus: string;
+}
+
 export interface UserRegisterDTO {
   email: string;
   password: string;
