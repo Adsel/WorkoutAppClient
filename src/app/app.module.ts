@@ -7,7 +7,6 @@ import { BottomNavModule } from 'ngx-bottom-nav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NotesComponent } from './pages/notes/notes.component';
 import { UserComponent } from './pages/user/user.component';
 
 import { AlphabetModule } from './alphabet/alphabet.module';
@@ -23,6 +22,7 @@ import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PlanerModule} from './planer/planer.module';
+import {NotesModule} from "./notes/notes.module";
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -33,7 +33,6 @@ const config: Config = {
   declarations: [
     AppComponent,
     UserComponent,
-    NotesComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -44,6 +43,7 @@ const config: Config = {
     MatIconModule,
     MatSliderModule,
     FontAwesomeModule,
+    NotesModule,
     SharedModule,
     ReactiveFormsModule,
     HomeModule,

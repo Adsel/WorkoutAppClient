@@ -20,6 +20,13 @@ export interface UserData {
   email: string;
 }
 
+export interface UserDto {
+  id: number;
+  email: string;
+  plan: number;
+  password: string;
+}
+
 export interface UserDataResponse {
   user: UserData;
   resultMessage: string;
