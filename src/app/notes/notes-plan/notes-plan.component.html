@@ -7,10 +7,7 @@
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
       <div class="text-center plan-wrapper mb-5">
         <div class="operations">
-          <!--          <button [routerLink]="['/notes']" mat-button class="neon-button" mat-button color="primary">-->
-          <!--            <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>-->
-          <!--            Start with this plan-->
-          <!--          </button>-->
+          <h2 class="caption-primary">Active plan</h2>
           <span class="caption-primary">{{exerciseCount}} exercises</span>
         </div>
         <div class="exercise" *ngFor="let exercise of this.exercises; index as index">
