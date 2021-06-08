@@ -115,4 +115,16 @@ export interface ActivatePlanDTO {
   userId: number;
 }
 
+export interface TrainingRow {
+    id: number;
+    id_user: number;
+    id_training_plan_exercise: number;
+    description: string;
+    done: boolean;
+}
+
+export interface TrainingRowsDTO {
+  trainingRows: TrainingRow[];
+}
+
 export const CONFIG = new InjectionToken<Config>('app.config');

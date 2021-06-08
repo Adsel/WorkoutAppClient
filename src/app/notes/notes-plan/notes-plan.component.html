@@ -3,9 +3,9 @@
 </app-header>
 
 <div class="container p-0">
-  <div class="row justify-content-center ">
+  <div class="row justify-content-center mb-5">
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
-      <div class="text-center plan-wrapper">
+      <div class="text-center plan-wrapper mb-5">
         <div class="operations">
           <!--          <button [routerLink]="['/notes']" mat-button class="neon-button" mat-button color="primary">-->
           <!--            <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>-->
@@ -29,11 +29,21 @@
                 <span class="exercise-desc">{{exercise.other}}</span>
               </ng-template>
 
-              <mat-form-field appearance="outline" class="mt-1 note-input">
-                <label>
-                  <textarea> </textarea>
-                </label>
-              </mat-form-field>
+
+                <div class="note-management">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Note</mat-label>
+                    <textarea matInput *ngIf="!noteExists(exercise.id)"></textarea>
+                    <textarea matInput *ngIf="noteExists(exercise.id)">{{ getNote(exercise.id )}}</textarea>
+                  </mat-form-field>
+
+                  <button mat-button class="neon-button mt-2" mat-button color="primary">
+                    <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+                    Save
+                  </button>
+                </div>
+
+
             </div>
           </a>
         </div>

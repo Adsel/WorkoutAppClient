@@ -24,7 +24,7 @@
     margin: $spacing-7 0;
   }
 
-  $squareSide: 126px;
+  $squareSide: 270px;
   .exercise > a {
     text-decoration: none;
     color: $color-white;
@@ -35,6 +35,12 @@
     margin-bottom: $spacing-5;
     background-size: cover;
     display: flex;
+
+    .note-management {
+      display: flex;
+      flex-direction: column;
+      padding: 0 15px;
+    }
 
 
     & > .exercise-image {

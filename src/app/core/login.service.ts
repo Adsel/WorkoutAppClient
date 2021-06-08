@@ -19,4 +19,9 @@ export class LoginService {
   getLoggedUser(): UserData {
     return JSON.parse(localStorage.getItem('logged_user'));
   }
+
+  getLoggedUserId(): number {
+    const loggedUser = JSON.parse(localStorage.getItem('logged_user'));
+    return loggedUser.id;
+  }
 }
