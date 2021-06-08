@@ -24,6 +24,11 @@
     margin: $spacing-7 0;
   }
 
+  .exercise-link {
+    color: white;
+    text-decoration: none;
+  }
+
   $squareSide: 270px;
   .exercise > a {
     text-decoration: none;

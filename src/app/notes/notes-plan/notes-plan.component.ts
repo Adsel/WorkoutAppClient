@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Config, CONFIG, PlanExercise, TrainingRow} from '../../model';
+import {Config, CONFIG, PlanExercise, TrainingRow, UserTrainingDayDTO} from '../../model';
 import {PlanerService} from '../../core/planer.service';
 import {ExerciseService} from '../../core/exercise.service';
 import {UserService} from '../../core/user.service';
@@ -15,8 +15,9 @@ import {NoteService} from '../../core/note.service';
 export class NotesPlanComponent implements OnInit {
   viewNameBold = 'Notes';
   viewNameRegular = 'Active Plan';
-  exercises: PlanExercise[];
-  savedExercises: TrainingRow[];
+  // exercises: PlanExercise[];
+  // savedExercises: TrainingRow[];
+  currentDayRows: UserTrainingDayDTO[];
   exerciseCount: number;
   planId: number;
 
@@ -28,59 +29,68 @@ export class NotesPlanComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private noteService: NoteService,
     @Inject(CONFIG) private config: Config
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.exercises = [];
-    this.savedExercises = [];
-    const userId = this.authService.getLoggedUser().id;
+    // this.exercises = [];
+    // this.savedExercises = [];
+    this.currentDayRows = [];
+    const userId = this.authService.getLoggedUserId();
 
-    this.userService.getUserData(userId).subscribe((userData) => {
-      this.planerService.getPlanExercises(userData.plan).subscribe(exercises => {
-        if (!!exercises && !!exercises.planExercises) {
-          this.exerciseCount = exercises.planExercises.length;
-
-          exercises.planExercises.forEach(planExercise => {
-            this.exerciseService.getExercise(planExercise.id_exercise).subscribe(exercise => {
-              this.exercises.push({
-                id: exercise.id,
-                name: exercise.name,
-                sets: planExercise.sets,
-                reps: planExercise.reps,
-                secs: planExercise.secs,
-                other: planExercise.other
-              });
-            });
-          });
-
-          this.noteService.getTodayTrainingRows(this.authService.getLoggedUserId()).subscribe((trainingRows) => {
-            trainingRows.trainingRows.forEach((row) => {
-              this.savedExercises.push(row);
-            });
-          });
-        }
-      });
-    });
-  }
-
-  noteExists(exerciseId): boolean {
-    this.savedExercises.forEach((row) => {
-      if (exerciseId === row.id_training_plan_exercise) {
-        return true;
-      }
+    this.noteService.getTodayTrainingRows(userId).subscribe((trainingRows) => {
+      this.currentDayRows = trainingRows;
     });
 
-    return false;
+    // this.userService.getUserData(userId).subscribe((userData) => {
+    // this.planerService.getPlanExercises(userData.plan).subscribe(exercises => {
+    //   if (!!exercises && !!exercises.planExercises) {
+    //     this.exerciseCount = exercises.planExercises.length;
+    //
+    //     exercises.planExercises.forEach(planExercise => {
+    //       this.exerciseService.getExercise(planExercise.id_exercise).subscribe(exercise => {
+    //         this.exercises.push({
+    //           id: exercise.id,
+    //           name: exercise.name,
+    //           sets: planExercise.sets,
+    //           reps: planExercise.reps,
+    //           secs: planExercise.secs,
+    //           other: planExercise.other
+    //         });
+    //       });
+    //     });
+    //
+    //     this.noteService.getTodayTrainingRows(this.authService.getLoggedUserId()).subscribe((trainingRows) => {
+    //       trainingRows.trainingRows.forEach((row) => {
+    //         this.savedExercises.push(row);
+    //       });
+    //     });
+    //   }
+    // });
+    // });
   }
 
-  getNote(planExerciseId): TrainingRow {
-    this.savedExercises.forEach((row) => {
-      if (planExerciseId === row.id_training_plan_exercise) {
-        return row;
-      }
-    });
+  // noteExists(exerciseId): boolean {
+  //   this.savedExercises.forEach((row) => {
+  //     if (exerciseId === row.id_training_plan_exercise) {
+  //       return true;
+  //     }
+  //   });
+  //
+  //   return false;
+  // }
+  //
+  // getNote(planExerciseId): TrainingRow {
+  //   this.savedExercises.forEach((row) => {
+  //     if (planExerciseId === row.id_training_plan_exercise) {
+  //       return row;
+  //     }
+  //   });
+  //
+  //   return null;
+  // }
 
-    return null;
+  saveNote(exercise: PlanExercise): void {
+
   }
-
 }

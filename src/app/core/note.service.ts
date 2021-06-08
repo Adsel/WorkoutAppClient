@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Config, CONFIG, TrainingRowsDTO} from '../model';
+import {Config, CONFIG, TrainingRowsDTO, UserTrainingDayDTO} from '../model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class NoteService {
     @Inject(CONFIG) private config: Config
   ) { }
 
-  getTodayTrainingRows(userId: number): Observable<TrainingRowsDTO> {
-    return this.httpClient.get<TrainingRowsDTO>(`${this.config.apiUrl}/training-rows/${userId}/today`);
+  getTodayTrainingRows(userId: number): Observable<UserTrainingDayDTO[]> {
+    return this.httpClient.get<UserTrainingDayDTO[]>(`${this.config.apiUrl}/training-rows/${userId}/today`);
   }
 }

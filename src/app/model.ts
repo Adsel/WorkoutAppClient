@@ -127,4 +127,11 @@ export interface TrainingRowsDTO {
   trainingRows: TrainingRow[];
 }
 
+export interface UserTrainingDayDTO {
+  exercise: PlanExerciseDTO;
+  desc: string;
+  isSaved: boolean;
+  exerciseName: string;
+}
+
 export const CONFIG = new InjectionToken<Config>('app.config');
