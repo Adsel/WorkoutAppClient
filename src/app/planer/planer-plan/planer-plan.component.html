@@ -6,7 +6,13 @@
   <div class="row justify-content-center ">
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
       <div class="text-center plan-wrapper">
-        <span class="caption-primary">{{exerciseCount}} exercises</span>
+        <div class="operations">
+          <button [routerLink]="['/notes']" mat-button class="neon-button" mat-button color="primary" (click)="getThisPlan()">
+            <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+            Start with this plan
+          </button>
+          <span class="caption-primary">{{exerciseCount}} exercises</span>
+        </div>
         <div class="exercise" *ngFor="let exercise of this.exercises; index as index">
           <a class="overflow-hidden" routerLink="/exercises/exercise/{{exercise.id}}">
             <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>

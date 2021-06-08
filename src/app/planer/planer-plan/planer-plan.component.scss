@@ -3,6 +3,17 @@
 .plan-wrapper {
   font-family: 'Roboto';
 
+  .operations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      max-width: 70%;
+      max-height: 60px;
+    }
+  }
+
   .caption-primary {
     display: block;
     color: $color-primary;

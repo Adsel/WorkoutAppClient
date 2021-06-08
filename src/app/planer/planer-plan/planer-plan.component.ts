@@ -15,6 +15,7 @@ export class PlanerPlanComponent implements OnInit {
   viewNameThin = 'Plan #';
   exercises: PlanExercise[];
   exerciseCount: number;
+  planId: number;
 
   constructor(
     private planerService: PlanerService,
@@ -29,9 +30,11 @@ export class PlanerPlanComponent implements OnInit {
       const planId = params.id;
       this.planerService.getPlanExercises(planId).subscribe(exercises => {
         if (!!exercises && !!exercises.planExercises) {
+          // tslint:disable-next-line:radix
+          this.planId = parseInt(planId);
           this.exerciseCount = exercises.planExercises.length;
           this.viewNameThin += planId;
-          console.log('EX', exercises);
+
           exercises.planExercises.forEach(planExercise => {
             this.exerciseService.getExercise(planExercise.id_exercise).subscribe(exercise => {
               this.exercises.push({
@@ -49,4 +52,10 @@ export class PlanerPlanComponent implements OnInit {
     });
   }
 
+  getThisPlan(): void {
+    this.planerService.activatePlan({
+      planId: this.planId,
+      userId: 1
+    }).subscribe(() => {});
+  }
 }

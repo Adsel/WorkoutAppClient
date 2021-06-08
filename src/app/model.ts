@@ -97,4 +97,9 @@ export interface PlanExercisesDTO {
   planExercises: PlanExerciseDTO[];
 }
 
+export interface ActivatePlanDTO {
+  planId: number;
+  userId: number;
+}
+
 export const CONFIG = new InjectionToken<Config>('app.config');
