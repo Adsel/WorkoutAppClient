@@ -1,31 +1,34 @@
 <app-header
-  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/image/planer/header-second.jpg'">
+  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular"
+  [imageUrl]="'/assets/image/planer/header-second.jpg'">
 </app-header>
 
-<div class="container p-0">
+<div class="container p-0 pb-3">
   <div class="row justify-content-center mb-5">
     <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
       <div class="text-center plan-wrapper mb-5">
         <div class="operations">
           <h2 class="caption-primary">Active plan</h2>
-          <span class="caption-primary">{{exerciseCount}} exercises</span>
+          <span class="caption-primary" *ngIf="planExists">{{exerciseCount}} exercises</span>
         </div>
-        <div class="exercise" *ngFor="let row of this.currentDayRows; index as index">
-          <a class="overflow-hidden">
-            <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
-            <div class="exercise-content">
-              <a class='exercise-link' routerLink="/exercises/exercise/{{row.exercise.id}}">
-                <h3>EXERCISE #{{index + 1}}</h3>
-                <p>{{row.exerciseName}}</p>
-              </a>
-              <span class="exercise-desc" *ngIf="!!row.exercise.sets || !!row.exercise.reps || !!row.exercise.secs; else description">
+        <ng-container *ngIf="planExists">
+          <div class="exercise" *ngFor="let row of this.currentDayRows; index as index">
+            <a class="overflow-hidden">
+              <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
+              <div class="exercise-content">
+                <a class='exercise-link' routerLink="/exercises/exercise/{{row.exercise.id}}">
+                  <h3>EXERCISE #{{index + 1}}</h3>
+                  <p>{{row.exerciseName}}</p>
+                </a>
+                <span class="exercise-desc"
+                      *ngIf="!!row.exercise.sets || !!row.exercise.reps || !!row.exercise.secs; else description">
                 {{row.exercise.sets ? row.exercise.sets : ''}}
-                x
-                {{row.exercise.reps ? row.exercise.reps + 'reps' : row.exercise.secs + 's' }}
+                  x
+                  {{row.exercise.reps ? row.exercise.reps + 'reps' : row.exercise.secs + 's' }}
               </span>
-              <ng-template #description>
-                <span class="exercise-desc">{{row.exercise.other}}</span>
-              </ng-template>
+                <ng-template #description>
+                  <span class="exercise-desc">{{row.exercise.other}}</span>
+                </ng-template>
                 <div class="note-management">
                   <mat-form-field matInput class="example-full-width">
                     <mat-label>Note</mat-label>
@@ -37,8 +40,16 @@
                     Save
                   </button>
                 </div>
-            </div>
-          </a>
+              </div>
+            </a>
+          </div>
+        </ng-container>
+        <div *ngIf="!planExists">
+          <h3>You don't have active plan now!</h3>
+          <button [routerLink]="['/planer/list']" mat-button class="mt-5 neon-button" mat-button color="primary">
+            <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+            Choose plan
+          </button>
         </div>
       </div>
     </div>

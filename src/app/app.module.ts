@@ -7,7 +7,6 @@ import { BottomNavModule } from 'ngx-bottom-nav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { UserComponent } from './pages/user/user.component';
 
 import { AlphabetModule } from './alphabet/alphabet.module';
 import { HomeModule } from './home/home.module';
@@ -17,22 +16,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PlanerModule} from './planer/planer.module';
-import {NotesModule} from "./notes/notes.module";
+import {NotesModule} from './notes/notes.module';
+import {UserModule} from './user/user.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
-  imagePlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
+  imagePlaceholderPath: '/assets/image/alphabet/placeholder.jpg',
+  headersConfig: new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*'),
 };
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -48,6 +48,7 @@ const config: Config = {
     ReactiveFormsModule,
     HomeModule,
     PlanerModule,
+    UserModule,
     AlphabetModule,
     HttpClientModule
   ],

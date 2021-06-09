@@ -20,6 +20,9 @@ export class NoteService {
 
   saveNote(exerciseNote: UserTrainingDayDTO): Observable<UserTrainingDayDTO> {
     const userId = this.authService.getLoggedUserId();
-    return this.httpClient.post<UserTrainingDayDTO>(`${this.config.apiUrl}/training-rows/${userId}/note`, exerciseNote);
+    return this.httpClient.post<UserTrainingDayDTO>(
+      `${this.config.apiUrl}/training-rows/${userId}/note`,
+       exerciseNote,
+      { headers: this.config.headersConfig });
   }
 }
