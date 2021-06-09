@@ -7,7 +7,6 @@ import { BottomNavModule } from 'ngx-bottom-nav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { UserComponent } from './pages/user/user.component';
 
 import { AlphabetModule } from './alphabet/alphabet.module';
 import { HomeModule } from './home/home.module';
@@ -22,7 +21,8 @@ import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PlanerModule} from './planer/planer.module';
-import {NotesModule} from "./notes/notes.module";
+import {NotesModule} from './notes/notes.module';
+import {UserModule} from './user/user.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -32,7 +32,6 @@ const config: Config = {
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -48,6 +47,7 @@ const config: Config = {
     ReactiveFormsModule,
     HomeModule,
     PlanerModule,
+    UserModule,
     AlphabetModule,
     HttpClientModule
   ],
