@@ -15,6 +15,7 @@ export class AlphabetDetailsComponent implements OnInit {
   viewNameRegular = 'Exercise';
   exerciseExists = false;
   iFrameYoutube: any;
+  viewDesc = 'Description';
 
   constructor(
     private activatedRoute: ActivatedRoute,
