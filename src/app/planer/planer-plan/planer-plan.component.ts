@@ -3,6 +3,7 @@ import {PlanerService} from '../../core/planer.service';
 import {Config, CONFIG, Exercise, PlanExercise} from '../../model';
 import {ExerciseService} from '../../core/exercise.service';
 import {ActivatedRoute} from '@angular/router';
+import {LoginService} from "../../core/login.service";
 
 @Component({
   selector: 'app-planer-plan',
@@ -15,10 +16,12 @@ export class PlanerPlanComponent implements OnInit {
   viewNameThin = 'Plan #';
   exercises: PlanExercise[];
   exerciseCount: number;
+  planId: number;
 
   constructor(
     private planerService: PlanerService,
     private exerciseService: ExerciseService,
+    private authService: LoginService,
     private activatedRoute: ActivatedRoute,
     @Inject(CONFIG) private config: Config
   ) { }
@@ -29,9 +32,11 @@ export class PlanerPlanComponent implements OnInit {
       const planId = params.id;
       this.planerService.getPlanExercises(planId).subscribe(exercises => {
         if (!!exercises && !!exercises.planExercises) {
+          // tslint:disable-next-line:radix
+          this.planId = parseInt(planId);
           this.exerciseCount = exercises.planExercises.length;
           this.viewNameThin += planId;
-          console.log('EX', exercises);
+
           exercises.planExercises.forEach(planExercise => {
             this.exerciseService.getExercise(planExercise.id_exercise).subscribe(exercise => {
               this.exercises.push({
@@ -49,4 +54,10 @@ export class PlanerPlanComponent implements OnInit {
     });
   }
 
+  getThisPlan(): void {
+    this.planerService.activatePlan({
+      planId: this.planId,
+      userId: this.authService.getLoggedUser()?.id
+    }).subscribe(() => {});
+  }
 }

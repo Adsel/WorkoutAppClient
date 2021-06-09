@@ -20,6 +20,19 @@ export interface UserData {
   email: string;
 }
 
+export interface UserDto {
+  id: number;
+  email: string;
+  plan: number;
+  password: string;
+}
+
+export interface UserDataResponse {
+  user: UserData;
+  resultMessage: string;
+  loginStatus: string;
+}
+
 export interface UserRegisterDTO {
   email: string;
   password: string;
@@ -95,6 +108,30 @@ export interface PlanExerciseDTO {
 
 export interface PlanExercisesDTO {
   planExercises: PlanExerciseDTO[];
+}
+
+export interface ActivatePlanDTO {
+  planId: number;
+  userId: number;
+}
+
+export interface TrainingRow {
+    id: number;
+    id_user: number;
+    id_training_plan_exercise: number;
+    description: string;
+    done: boolean;
+}
+
+export interface TrainingRowsDTO {
+  trainingRows: TrainingRow[];
+}
+
+export interface UserTrainingDayDTO {
+  exercise: PlanExerciseDTO;
+  desc: string;
+  isSaved: boolean;
+  exerciseName: string;
 }
 
 export const CONFIG = new InjectionToken<Config>('app.config');

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {UserComponent} from './pages/user/user.component';
-import {NotesComponent} from './pages/notes/notes.component';
+import {NotesPlanComponent} from './notes/notes-plan/notes-plan.component';
 
 const routes: Routes = [
   { path: 'user', component: UserComponent },
-  { path: 'notes', component: NotesComponent },
+  { path: 'notes', component: NotesPlanComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ];
 
