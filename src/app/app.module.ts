@@ -23,6 +23,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {PlanerModule} from './planer/planer.module';
 import {NotesModule} from './notes/notes.module';
 import {UserModule} from './user/user.module';
+import {AuthGuard} from "./core/auth-guard.service";
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -53,6 +54,7 @@ const config: Config = {
     HttpClientModule
   ],
   providers: [
+    AuthGuard,
     ExerciseService,
     { provide: CONFIG, useValue: config }
   ],

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {LoginService} from "../../core/login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-welcome',
@@ -14,21 +16,17 @@ export class WelcomeComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  // tslint:disable-next-line:variable-name
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    // tslint:disable-next-line:variable-name
+    private formBuilder: FormBuilder,
+  ) {}
 
-  // tslint:disable-next-line:typedef
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
+  ngOnInit(): void {
+    this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
   }
-
-
-
-
-
 }
