@@ -34,6 +34,8 @@ export class NotesPlanComponent implements OnInit {
   }
 
   saveNote(exercise: UserTrainingDayDTO): void {
-    console.log('Data', exercise);
+    this.noteService.saveNote(exercise).subscribe((response) => {
+      console.log('saveNote response', response);
+    });
   }
 }
