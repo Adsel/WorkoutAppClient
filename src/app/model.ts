@@ -1,8 +1,10 @@
 import {InjectionToken} from '@angular/core';
+import {HttpHeaders} from "@angular/common/http";
 
 export interface Config {
   apiUrl: string;
   imagePlaceholderPath: string;
+  headersConfig: HttpHeaders;
 }
 
 export interface ExerciseCategory {
@@ -132,6 +134,12 @@ export interface UserTrainingDayDTO {
   desc: string;
   isSaved: boolean;
   exerciseName: string;
+}
+
+export interface ChangePasswordData {
+  userId: number;
+  password: string;
+  rePassword: string;
 }
 
 export const CONFIG = new InjectionToken<Config>('app.config');

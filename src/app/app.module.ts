@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {CONFIG, Config} from './model';
 import { ExerciseService } from './core/exercise.service';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -26,7 +26,8 @@ import {UserModule} from './user/user.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
-  imagePlaceholderPath: '/assets/image/alphabet/placeholder.jpg'
+  imagePlaceholderPath: '/assets/image/alphabet/placeholder.jpg',
+  headersConfig: new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*'),
 };
 
 @NgModule({

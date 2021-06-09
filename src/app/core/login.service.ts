@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Config, CONFIG, UserData, UserDataResponse, UserLoginDTO} from '../model';
+import {ChangePasswordData, Config, CONFIG, UserData, UserDataResponse, UserLoginDTO} from '../model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,18 @@ export class LoginService {
 
   postLoginUser(userLoginDTO: UserLoginDTO): Observable<UserDataResponse> {
     return this.httpClient.post<UserDataResponse>(`${this.config.apiUrl}/user/login`, userLoginDTO);
+  }
+
+  changeUserPassword(passwd: string, repasswd: string): Observable<any> {
+    return this.httpClient.post<UserDataResponse>(
+      `${this.config.apiUrl}/user/password/change`,
+      {
+        userId: this.getLoggedUserId(),
+        password: passwd,
+        rePassword: repasswd
+      },
+      { headers: this.config.headersConfig }
+    );
   }
 
   getLoggedUser(): UserData {
