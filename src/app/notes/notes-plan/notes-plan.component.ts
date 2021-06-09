@@ -15,6 +15,7 @@ export class NotesPlanComponent implements OnInit {
   currentDayRows: UserTrainingDayDTO[];
   exerciseCount: number;
   planId: number;
+  planExists = false;
 
   constructor(
     private authService: LoginService,
@@ -31,6 +32,7 @@ export class NotesPlanComponent implements OnInit {
     this.noteService.getTodayTrainingRows(userId).subscribe((trainingRows) => {
       this.currentDayRows = trainingRows;
       this.exerciseCount = this.currentDayRows.length;
+      this.planExists = true;
     });
   }
 
