@@ -30,6 +30,7 @@ export class NotesPlanComponent implements OnInit {
 
     this.noteService.getTodayTrainingRows(userId).subscribe((trainingRows) => {
       this.currentDayRows = trainingRows;
+      this.exerciseCount = this.currentDayRows.length;
     });
   }
 
