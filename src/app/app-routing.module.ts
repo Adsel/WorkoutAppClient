@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {NotesPlanComponent} from './notes/notes-plan/notes-plan.component';
 
 const routes: Routes = [
-  { path: 'notes', component: NotesPlanComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ];
 

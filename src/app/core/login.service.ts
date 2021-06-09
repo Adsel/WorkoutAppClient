@@ -32,6 +32,11 @@ export class LoginService {
     return JSON.parse(localStorage.getItem('logged_user'));
   }
 
+  isLoggedUser(): boolean {
+    const loggedUser = localStorage.getItem('logged_user');
+    return loggedUser != null && loggedUser !== '';
+  }
+
   getLoggedUserId(): number {
     const loggedUser = JSON.parse(localStorage.getItem('logged_user'));
     return loggedUser.id;

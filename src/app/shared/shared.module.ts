@@ -50,7 +50,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { ConnectionRefusedComponent } from './connection-refused/connection-refused.component';
-import {MatDialog} from '@angular/material/dialog';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({

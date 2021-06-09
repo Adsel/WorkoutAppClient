@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesPlanComponent } from './notes-plan/notes-plan.component';
-import {SharedModule} from "../shared/shared.module";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {SharedModule} from '../shared/shared.module';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {AuthGuard} from '../core/auth-guard.service';
 
+const routes: Routes = [
+  { path: 'notes', component: NotesPlanComponent, canActivate: [AuthGuard] }
+];
 
 @NgModule({
   declarations: [NotesPlanComponent],
@@ -12,7 +16,8 @@ import {FormsModule} from "@angular/forms";
         CommonModule,
         SharedModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        RouterModule.forRoot(routes)
     ]
 })
 export class NotesModule { }
