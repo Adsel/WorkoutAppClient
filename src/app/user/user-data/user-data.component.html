@@ -1,44 +1,46 @@
-<app-header
-  [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/img1.jpg'">
-</app-header>
+<div class="layout">
+  <app-header
+    [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [imageUrl]="'/assets/img1.jpg'">
+  </app-header>
 
-<div class="container p-0 mt-5">
-  <div class="row justify-content-center ">
-    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+  <div class="container p-0 mt-5">
+    <div class="row justify-content-center ">
+      <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
 
-      <form class="user-form">
-        <h2>Auth data</h2>
+        <form class="user-form">
+          <h2>Auth data</h2>
 
-        <span>Password change</span>
-        <div class="auth-container">
-          <mat-form-field appearance="outline" class="mt-1 user-form input-full-width">
-            <mat-label>Password</mat-label>
-            <label>
-              <input [type]="showPassword ? 'password' : 'text'" name="passwd" [(ngModel)]="newPassword" matInput>
-            </label>
-            <mat-icon class="visibility_toggler" matSuffix (click)="showPassword = !showPassword">
-              {{showPassword ? 'visibility_off' : 'visibility'}}
-            </mat-icon>
-          </mat-form-field>
+          <span>Password change</span>
+          <div class="auth-container">
+            <mat-form-field appearance="outline" class="mt-1 user-form input-full-width">
+              <mat-label>Password</mat-label>
+              <label>
+                <input [type]="showPassword ? 'password' : 'text'" name="passwd" [(ngModel)]="newPassword" matInput>
+              </label>
+              <mat-icon class="visibility_toggler" matSuffix (click)="showPassword = !showPassword">
+                {{showPassword ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </mat-form-field>
 
-          <mat-form-field appearance="outline" class="mt-1 user-form input-full-width">
-            <mat-label>Repeat password</mat-label>
-            <label>
-              <input [type]="showRePassword ? 'password' : 'text'" name="rePasswd" [(ngModel)]="newPasswordRe" matInput>
-            </label>
-            <mat-icon class="visibility_toggler" matSuffix (click)="showRePassword = !showRePassword">
-              {{showRePassword ? 'visibility_off' : 'visibility'}}
-            </mat-icon>
-          </mat-form-field>
-        </div>
+            <mat-form-field appearance="outline" class="mt-1 user-form input-full-width">
+              <mat-label>Repeat password</mat-label>
+              <label>
+                <input [type]="showRePassword ? 'password' : 'text'" name="rePasswd" [(ngModel)]="newPasswordRe" matInput>
+              </label>
+              <mat-icon class="visibility_toggler" matSuffix (click)="showRePassword = !showRePassword">
+                {{showRePassword ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </mat-form-field>
+          </div>
 
-        <div class="divider mt-2 mb-4"></div>
+          <div class="divider mt-2 mb-4"></div>
 
-        <button mat-button (click)="onSubmit($event)" class="neon-button button-cta" color="primary">
-          <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
-          Change password
-        </button>
-      </form>
+          <button mat-button (click)="onSubmit($event)" class="neon-button button-cta" color="primary">
+            <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+            Change password
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

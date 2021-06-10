@@ -18,6 +18,12 @@
       justify-content: center;
     }
 
+    span {
+      @media (max-width: $breakpoint-tablet) {
+        margin: 10px;
+      }
+    }
+
     button {
       max-width: 70%;
       max-height: 60px;

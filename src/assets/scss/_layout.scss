@@ -1,0 +1,8 @@
+.layout {
+  height: calc(100vh - 60px - 20px);
+  width: 100vw;
+  overflow-y: scroll;
+  margin-top: 15px;
+  scrollbar-width: none;
+  overflow-x: hidden;
+}
