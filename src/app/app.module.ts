@@ -24,6 +24,8 @@ import {PlanerModule} from './planer/planer.module';
 import {NotesModule} from './notes/notes.module';
 import {UserModule} from './user/user.module';
 import {AuthGuard} from "./core/auth-guard.service";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -51,7 +53,13 @@ const config: Config = {
     PlanerModule,
     UserModule,
     AlphabetModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     AuthGuard,
