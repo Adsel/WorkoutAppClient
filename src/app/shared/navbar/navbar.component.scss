@@ -1,5 +1,6 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
+$navbarHeight: 60px;
 #navbar-space{
-  height: 60px;
+  height: $navbarHeight;
 }
