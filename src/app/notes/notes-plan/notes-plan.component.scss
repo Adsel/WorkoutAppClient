@@ -12,6 +12,12 @@
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: $breakpoint-tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     button {
       max-width: 70%;
       max-height: 60px;
@@ -41,6 +47,13 @@
     background-size: cover;
     display: flex;
 
+    @media (max-width: $breakpoint-tablet) {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      padding-bottom: 15px;
+    }
+
     .note-management {
       display: flex;
       flex-direction: column;
@@ -52,9 +65,27 @@
       height: 100%;
       width: $squareSide;
       background-size: cover;
+
+      @media (max-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+
+    & > .exercise-image-mobile {
+      display: none;
+      max-height: $squareSide;
+
+      @media (max-width: $breakpoint-tablet) {
+        display: flex;
+      }
     }
 
     & > .exercise-content {
+      @media (max-width: $breakpoint-tablet) {
+        width: auto;
+        padding-top: 10px;
+      }
+
       width: calc(100% - #{$squareSide});
       display: flex;
       flex-direction: column;

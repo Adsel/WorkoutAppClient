@@ -14,6 +14,7 @@
         <ng-container *ngIf="planExists">
           <div class="exercise" *ngFor="let row of this.currentDayRows; index as index">
             <a class="overflow-hidden">
+              <img class="exercise-image-mobile" src="/assets/image/planer/header-second.jpg" />
               <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
               <div class="exercise-content">
                 <a class='exercise-link' routerLink="/exercises/exercise/{{row.exercise.id}}">
