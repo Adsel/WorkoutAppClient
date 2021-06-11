@@ -9,18 +9,21 @@ import {SharedModule} from '../shared/shared.module';
 import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 const routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({
   declarations: [
     WelcomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

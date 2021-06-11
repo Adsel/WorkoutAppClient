@@ -1,0 +1,29 @@
+@import "../../../assets/scss/shared";
+
+.ex-title {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.ex-lenght{
+  font-size: 0.7rem;
+}
+
+.no-wrap{
+  flex-wrap: nowrap !important;
+  overflow-x: scroll;
+  mat-card{
+    border-radius: 16px;
+  }
+  img{
+    border-radius: 16px 16px 0px 0px;
+  }
+}
+
+h5{
+  color: $color-primary;
+}
+
+.no-wrap::-webkit-scrollbar {
+  display: none;
+}

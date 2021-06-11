@@ -1,0 +1,67 @@
+<div class="layout">
+  <app-header
+    [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [viewNameThin]="viewNameThin" [imageUrl]="'/assets/image/planer/header-second.jpg'">
+  </app-header>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <h5 class="title">Plan examples</h5>
+    </div>
+  </div>
+
+  <div class="row justify-content-center no-wrap pt-3">
+    <div class="col-4">
+      <mat-card class="plan-card">
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <div class="ex-title">
+            Plan Two
+          </div>
+          <div class="ex-lenght">
+            5 exercises
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <h5 class="title">Work examples</h5>
+    </div>
+  </div>
+
+  <div class="row justify-content-center no-wrap pt-3">
+    <div class="col-4">
+      <mat-card class="plan-card">
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <div class="ex-title">
+            Plan Two
+          </div>
+          <div class="ex-lenght">
+            5 exercises
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <h1 class="text-center mb-4">Your Training</h1>
+      <div><b>Current Plan:</b>  Work#1</div>
+      <div><b>Day:</b>  12</div>
+
+      <button [routerLink]="['/notes']" mat-button class="neon-button mt-4" mat-button color="primary">
+        <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+        Start with this plan
+      </button>
+    </div>
+  </div>
+
+
+
+</div>
+
+<app-navbar></app-navbar>
