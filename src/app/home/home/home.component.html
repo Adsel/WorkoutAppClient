@@ -10,15 +10,16 @@
   </div>
 
   <div class="row justify-content-center no-wrap pt-3">
-    <div class="col-4">
-      <mat-card class="plan-card">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <div class="col-4" *ngFor="let plan of this.plans"
+    >
+      <mat-card class="plan-card" routerLink="/planer/{{plan.id}}">
+        <div mat-card-image class="mat-image" [ngStyle]="{'background-image': 'url(' + (plan.image != null ? plan.image: this.config.imagePlaceholderPath) + ')'}"></div>
         <mat-card-content>
           <div class="ex-title">
-            Plan Two
+            {{plan.name}}
           </div>
           <div class="ex-lenght">
-            5 exercises
+            {{plan.categoryName}}
           </div>
         </mat-card-content>
       </mat-card>
@@ -32,15 +33,13 @@
   </div>
 
   <div class="row justify-content-center no-wrap pt-3">
-    <div class="col-4">
-      <mat-card class="plan-card">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <div class="col-4" *ngFor="let exercise of this.exercises"
+    >
+      <mat-card class="plan-card" routerLink="/exercise/{{exercise.id}}">
+        <div mat-card-image class="mat-image" [ngStyle]="{'background-image': 'url(' + (exercise.videoUrl != null ? exercise.videoUrl: this.config.imagePlaceholderPath) + ')'}"></div>
         <mat-card-content>
           <div class="ex-title">
-            Plan Two
-          </div>
-          <div class="ex-lenght">
-            5 exercises
+            {{exercise.name}}
           </div>
         </mat-card-content>
       </mat-card>

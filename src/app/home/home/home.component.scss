@@ -27,3 +27,10 @@ h5{
 .no-wrap::-webkit-scrollbar {
   display: none;
 }
+
+.mat-image{
+  height: 20rem;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: top center;
+}
