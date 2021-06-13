@@ -1,7 +1,7 @@
 <div class="layout">
   <app-header
     [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular"
-    [imageUrl]="'/assets/image/planer/header-second.jpg'">
+    [imageUrl]="'/assets/image/alphabet/placeholder.jpg'">
   </app-header>
 
   <div class="container p-0 pb-3">
@@ -15,8 +15,8 @@
           <ng-container *ngIf="planExists">
             <div class="exercise" *ngFor="let row of this.currentDayRows; index as index">
               <a class="overflow-hidden">
-                <img class="exercise-image-mobile" src="/assets/image/planer/header-second.jpg" />
-                <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
+                <img class="exercise-image-mobile" src="/assets/image/planer/header-first.jpg" />
+                <div class="exercise-image" style="background-image: none;"></div>
                 <div class="exercise-content">
                   <a class='exercise-link' routerLink="/exercises/exercise/{{row.exercise.id}}">
                     <h3>EXERCISE #{{index + 1}}</h3>

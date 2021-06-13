@@ -1,6 +1,6 @@
 <div class="layout">
   <app-header
-    [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [viewNameThin]="viewNameThin" [imageUrl]="'/assets/image/planer/header-second.jpg'">
+    [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [viewNameThin]="viewNameThin" [imageUrl]="'/assets/image/alphabet/placeholder.jpg'">
   </app-header>
 
   <div class="container p-0">
@@ -16,7 +16,7 @@
           </div>
           <div class="exercise" *ngFor="let exercise of this.exercises; index as index">
             <a class="overflow-hidden" routerLink="/exercises/exercise/{{exercise.id}}">
-              <div class="exercise-image" style="background-image: url(/assets/image/planer/header-second.jpg);"></div>
+              <div class="exercise-image" style="background-image: url(/assets/image/alphabet/placeholder.jpg);"></div>
               <div class="exercise-content">
                 <h3>EXERCISE #{{index + 1}}</h3>
                 <p>{{exercise.name}}</p>
