@@ -1,0 +1,66 @@
+<div class="layout">
+  <app-header
+    [viewNameBold]="viewNameBold" [viewNameRegular]="viewNameRegular" [viewNameThin]="viewNameThin" [imageUrl]="'/assets/image/planer/header-second.jpg'">
+  </app-header>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <h5 class="title">Plan examples</h5>
+    </div>
+  </div>
+
+  <div class="row justify-content-center no-wrap pt-3">
+    <div class="col-4" *ngFor="let plan of this.plans"
+    >
+      <mat-card class="plan-card" routerLink="/planer/{{plan.id}}">
+        <div mat-card-image class="mat-image" [ngStyle]="{'background-image': 'url(' + (plan.image != null ? plan.image: this.config.imagePlaceholderPath) + ')'}"></div>
+        <mat-card-content>
+          <div class="ex-title">
+            {{plan.name}}
+          </div>
+          <div class="ex-lenght">
+            {{plan.categoryName}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <h5 class="title">Work examples</h5>
+    </div>
+  </div>
+
+  <div class="row justify-content-center no-wrap pt-3">
+    <div class="col-4" *ngFor="let exercise of this.exercises"
+    >
+      <mat-card class="plan-card" routerLink="/exercise/{{exercise.id}}">
+        <div mat-card-image class="mat-image" [ngStyle]="{'background-image': 'url(' + (exercise.videoUrl != null ? exercise.videoUrl: this.config.imagePlaceholderPath) + ')'}"></div>
+        <mat-card-content>
+          <div class="ex-title">
+            {{exercise.name}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-9 col-10 px-3">
+      <h1 class="text-center mb-4">Your Training</h1>
+      <div><b>Current Plan:</b>  Work#1</div>
+      <div><b>Day:</b>  12</div>
+
+      <button [routerLink]="['/notes']" mat-button class="neon-button mt-4" mat-button color="primary">
+        <mat-icon ngxBottomNavIcon fontSet="fa" fontIcon="fa-sign-in-alt"></mat-icon>
+        Start with this plan
+      </button>
+    </div>
+  </div>
+
+
+
+</div>
+
+<app-navbar></app-navbar>
