@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Config, CONFIG, Exercise, Plan} from '../../model';
 import {PlanerService} from '../../core/planer.service';
 import {ExerciseService} from '../../core/exercise.service';
+import {LoginService} from "../../core/login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -17,12 +19,18 @@ export class HomeComponent implements OnInit {
   exercises: Exercise[];
 
   constructor(
+    private authService: LoginService,
     private planerService: PlanerService,
     private exerciseService: ExerciseService,
+    private router: Router,
     @Inject(CONFIG) private config: Config
   ) { }
 
   ngOnInit(): void {
+    if (!this.authService.isLoggedUser()) {
+      this.router.navigate(['/welcome']);
+      return;
+    }
     this.plans = [];
     this.planerService.getPlanCategories().subscribe(response => {
       if (!!response && !!response.plans) {
