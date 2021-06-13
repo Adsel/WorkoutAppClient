@@ -17,6 +17,10 @@ export class ExerciseService {
     return this.httpClient.get<ExerciseCategoryDTO>(`${this.config.apiUrl}/exercise-alphabet/categories`);
   }
 
+  getExercises(): Observable<ExercisesDTO> {
+    return this.httpClient.get<ExercisesDTO>(`${this.config.apiUrl}/exercise-plans/exercises`);
+  }
+
   getExerciseByCategory(categoryId: number): Observable<ExercisesDTO> {
     return this.httpClient.get<ExercisesDTO>(`${this.config.apiUrl}/exercise-alphabet/category-exercises/${categoryId}`);
   }
